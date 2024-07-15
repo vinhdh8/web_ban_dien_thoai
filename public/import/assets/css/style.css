@@ -1,0 +1,39 @@
+
+.table{
+  vertical-align: baseline;
+}
+td{
+  vertical-align: middle;
+}
+.Err{
+  color: red;
+}
+.phantrang ul{
+display: flex;
+margin-left: 933px;
+padding-top: 20px;
+}
+.phantrang ul li{
+  list-style: none;
+}
+.phantrang ul li a{
+  text-decoration: none;
+  padding: 10px 15px;
+  border: 1px solid #bec1cc;
+  font-size: 16px;
+  color: #000;
+}
+.phantrang ul li a:hover{
+  background-color: #bec1cc;
+  transition: 0.5s;
+}
+.phantrang ul li a.active{
+  background-color: #bec1cc;
+}
+.thanhtoanadmin1{
+  color: #4cd137;
+}
+.thanhtoanadmin2{
+  color: red;
+}
+/*end css*/
