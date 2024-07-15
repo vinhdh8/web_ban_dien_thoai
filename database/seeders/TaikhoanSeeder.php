@@ -20,10 +20,20 @@ class TaikhoanSeeder extends Seeder
             [
                 [
                     'ho_va_ten' => 'Đặng Hồng Vinh',
-                    'ten_dang_nhap' => 'link8phut123',
+                    'ten_dang_nhap' => 'Vinhdh88',
                     'mat_khau' => '123456789',
                     'email' => 'vinhd768@gmail.com',
                     'so_dien_thoai' => '0868215098',
+                    'dia_chi' => 'Nam Từ Liêm, Hà Nội',
+                    'vai_tro' => 1,
+                    'trang_thai' => 1
+                ],
+                [
+                    'ho_va_ten' => 'Nguyễn Thiện Giáp',
+                    'ten_dang_nhap' => 'Giapnt66',
+                    'mat_khau' => '123456789',
+                    'email' => 'giapnt768@gmail.com',
+                    'so_dien_thoai' => '0868888888',
                     'dia_chi' => 'Nam Từ Liêm, Hà Nội',
                     'vai_tro' => 1,
                     'trang_thai' => 1
