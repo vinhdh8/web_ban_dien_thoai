@@ -20,15 +20,16 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            Danhmuc ::class,
-            Sanpham::class,
-            Donhang ::class,
-            Taikhoan::class,
-            Giohang ::class,
-            Chitietdonhang::class,
-            Binhluan::class,
-            Tintuc::class,
-            Banner::class
+        //   DanhmucSeeder::class,
+        //   SanphamSeeder::class,
+        //   TaikhoanSeeder::class,
+        //   GiohangSeeder::class,
+        //   DonhangSeeder::class,
+          ChitietdonhangSeeder::class,
+        //   BinhluanSeeder::class,
+        //   TintucSeeder::class,
+        //   BannerSeeder::class
+        
             
         ]);
     }
