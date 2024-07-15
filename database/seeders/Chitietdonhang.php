@@ -17,11 +17,11 @@ class Chitietdonhang extends Seeder
     {
         DB::table('chi_tiet_don_hangs')->insert(
             [
-             'don_hang_id'=>1,
-             'san_pham_id'=>1,
-             'so_luong'=>2,
-             'dong_gia'=>1500000,
-             'thanh_tien'=>3000000
+             'don_hang_id'=>'1',
+             'san_pham_id'=>'1',
+             'so_luong'=>'2',
+             'dong_gia'=>'1500000',
+             'thanh_tien'=>'3000000'
             ]
           );
     }
