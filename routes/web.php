@@ -28,4 +28,4 @@ Route::group(['prefix'=>'admin'], function(){
     Route::resource('donhang', DonHangController::class);
     Route::resource('taikhoan', TaiKhoanController::class);
 });
-
+//test
