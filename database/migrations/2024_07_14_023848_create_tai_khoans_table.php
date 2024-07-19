@@ -16,11 +16,13 @@ return new class extends Migration
             $table->string('ho_va_ten');
             $table->string('ten_dang_nhap');
             $table->string('mat_khau');
-            $table->string('email');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('so_dien_thoai');
             $table->string('dia_chi');
             $table->boolean('vai_tro');
             $table->boolean('trang_thai');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

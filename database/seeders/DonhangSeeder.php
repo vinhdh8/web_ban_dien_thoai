@@ -26,7 +26,7 @@ class DonhangSeeder extends Seeder
                 'phuong_thuc_thanh_toan' => '1',
                 'trang_thai' => '1',
                 'thanh_toan' => '1',
-                'tai_khoan_id' => '11'
+                'user_id' => '1'
             ],
             [
                 'ten_nguoi_nhan' => 'Nguyen Van An',
@@ -36,7 +36,7 @@ class DonhangSeeder extends Seeder
                 'phuong_thuc_thanh_toan' => '2',
                 'trang_thai' => '0',
                 'thanh_toan' => '0',
-                'tai_khoan_id' => '12'
+                'user_id' => '1'
             ],
             [
                 'ten_nguoi_nhan' => 'Tran Thi Bich',
@@ -46,7 +46,7 @@ class DonhangSeeder extends Seeder
                 'phuong_thuc_thanh_toan' => '1',
                 'trang_thai' => '1',
                 'thanh_toan' => '1',
-                'tai_khoan_id' => '13'
+                'user_id' => '1'
             ],
             [
                 'ten_nguoi_nhan' => 'Le Van Cuong',
@@ -56,7 +56,7 @@ class DonhangSeeder extends Seeder
                 'phuong_thuc_thanh_toan' => '2',
                 'trang_thai' => '0',
                 'thanh_toan' => '0',
-                'tai_khoan_id' => '14'
+                'user_id' => '1'
             ],
             [
                 'ten_nguoi_nhan' => 'Pham Thi Duyen',
@@ -66,7 +66,7 @@ class DonhangSeeder extends Seeder
                 'phuong_thuc_thanh_toan' => '1',
                 'trang_thai' => '1',
                 'thanh_toan' => '1',
-                'tai_khoan_id' => '15'
+                'user_id' => '1'
             ],
             [
                 'ten_nguoi_nhan' => 'Hoang Van Em',
@@ -76,7 +76,7 @@ class DonhangSeeder extends Seeder
                 'phuong_thuc_thanh_toan' => '2',
                 'trang_thai' => '0',
                 'thanh_toan' => '0',
-                'tai_khoan_id' => '16'
+                'user_id' => '1'
             ],
             [
                 'ten_nguoi_nhan' => 'Vu Thi Phuong',
@@ -86,7 +86,7 @@ class DonhangSeeder extends Seeder
                 'phuong_thuc_thanh_toan' => '1',
                 'trang_thai' => '1',
                 'thanh_toan' => '1',
-                'tai_khoan_id' => '17'
+                'user_id' => '1'
             ],
             [
                 'ten_nguoi_nhan' => 'Do Van Giang',
@@ -96,7 +96,7 @@ class DonhangSeeder extends Seeder
                 'phuong_thuc_thanh_toan' => '2',
                 'trang_thai' => '0',
                 'thanh_toan' => '0',
-                'tai_khoan_id' => '18'
+                'user_id' => '1'
             ],
             [
                 'ten_nguoi_nhan' => 'Nguyen Thi Hien',
@@ -106,7 +106,7 @@ class DonhangSeeder extends Seeder
                 'phuong_thuc_thanh_toan' => '1',
                 'trang_thai' => '1',
                 'thanh_toan' => '1',
-                'tai_khoan_id' => '19'
+                'user_id' => '1'
             ],
             [
                 'ten_nguoi_nhan' => 'Phan Van Hung',
@@ -116,7 +116,7 @@ class DonhangSeeder extends Seeder
                 'phuong_thuc_thanh_toan' => '2',
                 'trang_thai' => '0',
                 'thanh_toan' => '0',
-                'tai_khoan_id' => '19'
+                'user_id' => '1'
             ]
         ]
          );

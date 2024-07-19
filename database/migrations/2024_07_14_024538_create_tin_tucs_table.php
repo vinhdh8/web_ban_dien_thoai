@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('hinh_anh')->nullable();
             $table->date('ngay_dang');
             $table->longText('noi_dung');
-            $table->unsignedBigInteger('tai_khoan_id');
-            $table->foreign('tai_khoan_id')->references('id')->on('tai_khoans')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

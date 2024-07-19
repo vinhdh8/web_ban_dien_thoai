@@ -3,16 +3,16 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\TaiKhoan;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class TaiKhoanController extends Controller
+class UserController extends Controller
 {
     public $tai_khoan;
 
     public function __construct()
     {
-        $this->tai_khoan = new TaiKhoan();
+        $this->tai_khoan = new User();
     }
     /**
      * Display a listing of the resource.
@@ -20,9 +20,9 @@ class TaiKhoanController extends Controller
     public function index()
     {
         //
-        $listTaiKhoanQT = $this->tai_khoan->getAll();
+        $listTaiKhoanQT = $this->tai_khoan->getAll(1);
         return view('admin.taikhoan.index', ['tai_khoans' => $listTaiKhoanQT]);
-
+        
     }
 
     /**
