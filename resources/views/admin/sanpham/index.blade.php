@@ -9,7 +9,7 @@
                 <button type="button" class="btn btn-secondary btn-sm" onclick="">Chọn tất cả</button>
                 <button type="button" class="btn btn-secondary btn-sm" onclick="">Bỏ chọn tất cả</button>
                 <button type="submit" name="xoacacmucchon" class="btn btn-secondary btn-sm">Xóa các mục đã chọn</button>
-                <a href=""><button type="button" class="btn btn-secondary btn-sm">Nhập thêm</button></a>
+                <a href="{{ route('sanpham.create') }}"><button type="button" class="btn btn-secondary btn-sm">Nhập thêm</button></a>
                 <div class="float-right">
                     <div class="input-group">
                         <input type="text" class="form-control" name="kyw" placeholder="Tìm kiếm...">

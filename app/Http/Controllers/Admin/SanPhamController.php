@@ -31,7 +31,9 @@ class SanPhamController extends Controller
      */
     public function create()
     {
-        //
+
+    return view('admin.sanpham.add');
+    
     }
 
     /**
