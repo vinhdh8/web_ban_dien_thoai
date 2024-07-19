@@ -8,34 +8,36 @@
 </div>
 <div class="card shadow mb-4">
     <div class="card-body">
-        <form action="?act=addsp" method="post" enctype="multipart/form-data" class="form">
+        <form action="{{route('sanpham.store')}}" method="post" enctype="multipart/form-data" class="form">
+        @csrf
+
             <div class="mb-3">
                 <label for="tensp" class="form-label">Tên sản phẩm</label>
-                <input type="text" class="form-control" id="tensp" name="tensp" placeholder="Nhập tên sản phẩm..." value="">
+                <input type="text" class="form-control" id="ten_san_pham" name="ten_san_pham" placeholder="Nhập tên sản phẩm..." value="">
             </div>
             <div class="mb-3">
                 <label for="gia" class="form-label">Giá</label>
-                <input type="number" class="form-control" id="gia" name="giasp" placeholder="Nhập giá..." value="">
+                <input type="number" class="form-control" id="gia" name="gia" placeholder="Nhập giá..." value="">
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">Tải ảnh lên:</label>
-                <input type="file" name="image" id="image" class="form-control-file border">
+                <input type="file" name="hinh_anh" id="hinh_anh" class="form-control-file border">
             </div>
             <div class="mb-3">
                 <label for="soluong" class="form-label">Số lượng</label>
-                <input type="number" class="form-control" id="soluong" name="soluong" placeholder="Nhập số lượng..." value="">
-            </div>
-            <div class="mb-3">
-                <label for="khuyenmai" class="form-label">Khuyến mãi (%)</label>
-                <input type="number" class="form-control" id="khuyenmai" name="khuyenmai" placeholder="Nhập khuyến mãi..." value="">
+                <input type="number" class="form-control" id="so_luong" name="so_luong" placeholder="Nhập số lượng..." value="">
             </div>
             <div class="mb-3">
                 <label for="mota">Mô tả</label>
-                <textarea class="form-control" rows="5" id="mota" name="mota" placeholder="Nhập mô tả..."></textarea>
+                <textarea class="form-control" rows="5" id="mo_ta" name="mo_ta" placeholder="Nhập mô tả..."></textarea>
             </div>
             <div class="mb-3">
                 <label for="sel1">Danh mục</label>
                 <select class="form-control" id="sel1" name="danhmuc">
+                    @foreach($danh_mucs as $danhmuc){
+                        <option value="{{$danhmuc->id}}">{{$danhmuc->ten_danh_muc}}</option>
+                    }
+                    @endforeach
                 </select>
             </div>
             <div>

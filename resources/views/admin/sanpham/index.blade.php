@@ -47,8 +47,8 @@
                                     <td  class="align-middle">{{ $item->so_luong }}</td>
                                     <td  class="col-1 align-middle">{{ $item->ten_danh_muc }}</td>
                                     <td class="col-2 align-middle">
-                                        <a href=""><button type="button" class="btn btn-secondary btn-sm">Sửa</button></a> | 
-                                        <a href=""><button type="button" class="btn btn-secondary btn-sm">Xóa</button></a>
+                                        <a href="{{route('sanpham.show', $item->id)}}"><button type="button" class="btn btn-secondary btn-sm">Sửa</button></a> | 
+                                        <a href="{{route('sanpham.destroy', $item->id)}}"><button type="button" class="btn btn-secondary btn-sm">Xóa</button></a>
                                     </td>
                                 </tr>
                             @endforeach

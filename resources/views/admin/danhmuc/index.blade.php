@@ -39,10 +39,10 @@
                                     <td class="col-2">{{ $index + 1 }}</td>
                                     <td>{{ $item->ten_danh_muc }}</td>
                                     <td class="col-2">
-                                        <a href="">
+                                        <a href="{{route('sanpham.show', $item->id)}}">
                                             <button type="button" class="btn btn-secondary btn-sm">Sửa</button>
                                         </a> | 
-                                        <a onclick="" href="">
+                                        <a onclick="" href="{{route('sanpham.destroy', $item->id)}}">
                                             <button type="button" class="btn btn-secondary btn-sm">Xóa</button>
                                         </a>
                                     </td>
