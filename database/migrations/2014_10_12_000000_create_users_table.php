@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('ho_va_ten'); 
-            $table->string('ten_dang_nhap'); //Thiếu unique()
+            $table->string('ten_dang_nhap')->nullable()->unique(); 
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('mat_khau');
-            $table->string('so_dien_thoai')->nullable(); //Thiếu unique()
+            $table->string('password');
+            $table->string('so_dien_thoai')->nullable()->unique(); 
             $table->string('dia_chi')->nullable();
-            $table->boolean('vai_tro');
-            $table->boolean('trang_thai');
+            $table->boolean('vai_tro')->default(0);
+            $table->boolean('trang_thai')->default(0)->comment('0.Tốt, 1.Đã khóa');
             $table->rememberToken();
             $table->timestamps();
         });
