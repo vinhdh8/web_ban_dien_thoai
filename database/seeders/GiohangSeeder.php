@@ -19,62 +19,62 @@ class GiohangSeeder extends Seeder
          DB::table('gio_hangs')->insert(
             [
                 [
-                    'tai_khoan_id' => 11,
-                    'san_pham_id' => 52,
+                    'user_id' => 1,
+                    'san_pham_id' => 1,
                     'so_luong' => 1,
                     'thanh_tien' => 80000000
                 ],
                 [
-                    'tai_khoan_id' => 12,
-                    'san_pham_id' => 53,
+                    'user_id' => 2,
+                    'san_pham_id' => 2,
                     'so_luong' => 1,
                     'thanh_tien' => 14000000
                 ],
                 [
-                    'tai_khoan_id' => 13,
-                    'san_pham_id' => 54,
+                    'user_id' => 3,
+                    'san_pham_id' => 3,
                     'so_luong' => 1,
                     'thanh_tien' => 19000000
                 ],
                 [
-                    'tai_khoan_id' => 14,
-                    'san_pham_id' => 55,
+                    'user_id' => 1,
+                    'san_pham_id' => 4,
                     'so_luong' => 1,
                     'thanh_tien' => 16000000
                 ],
                 [
-                    'tai_khoan_id' => 15,
-                    'san_pham_id' => 56,
+                    'user_id' => 2,
+                    'san_pham_id' => 5,
                     'so_luong' => 1,
                     'thanh_tien' => 11000000
                 ],
                 [
-                    'tai_khoan_id' => 16,
-                    'san_pham_id' => 57,
+                    'user_id' => 3,
+                    'san_pham_id' => 6,
                     'so_luong' => 1,
                     'thanh_tien' => 15000000
                 ],
                 [
-                    'tai_khoan_id' => 17,
-                    'san_pham_id' => 58,
+                    'user_id' => 1,
+                    'san_pham_id' => 7,
                     'so_luong' => 1,
                     'thanh_tien' => 20000000
                 ],
                 [
-                    'tai_khoan_id' => 18,
-                    'san_pham_id' => 59,
+                    'user_id' => 2,
+                    'san_pham_id' => 8,
                     'so_luong' => 1,
                     'thanh_tien' => 18000000
                 ],
                 [
-                    'tai_khoan_id' => 19,
-                    'san_pham_id' => 60,
+                    'user_id' => 3,
+                    'san_pham_id' => 9,
                     'so_luong' => 1,
                     'thanh_tien' => 12000000
                 ],
                 [
-                    'tai_khoan_id' => 19,
-                    'san_pham_id' => 61,
+                    'user_id' => 1,
+                    'san_pham_id' => 10,
                     'so_luong' => 1,
                     'thanh_tien' => 17000000
                 ]

@@ -35,7 +35,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{'/'}}">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{'/admin'}}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fa-solid fa-house"></i>
                 </div>
@@ -189,7 +189,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::user()->ho_va_ten}}</span>
                                 <i class="fas fa-fw fa-user"></i>
                             </a>
                             <!-- Dropdown - User Information -->
@@ -253,7 +253,7 @@
                 <div class="modal-body">Chọn "Đăng xuất" bên dưới nếu bạn muốn thoát khỏi trang admin.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="../controller/index.php">Đăng xuất</a>
+                    <a class="btn btn-primary" href="{{ ('/') }}">Đăng xuất</a>
                 </div>
             </div>
         </div>

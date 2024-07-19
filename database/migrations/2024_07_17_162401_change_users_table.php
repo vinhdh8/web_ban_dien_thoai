@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('don_hangs', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             //
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->boolean('vai_tro')->default(0)->change();
+            $table->boolean('trang_thai')->default(0)->comment('0.Tốt', '1.Đã khóa')->change();
         });
     }
 
@@ -22,7 +23,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('don_hangs', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             //
         });
     }
