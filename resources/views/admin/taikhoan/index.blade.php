@@ -48,7 +48,7 @@
                                         $item->vai_tro = "Thành viên"
                                     @endphp
                                 @endif
-                                {{-- @if ($item->trang_thai==0) --}}
+                                @if ($item->trang_thai==0)
                                     <tr>
                                         <td class="align-middle text-center"><input type="checkbox" name="select[]" value=""></td>
                                         <td class="align-middle">{{ $index + 1 }}</td>
@@ -58,11 +58,11 @@
                                         <td class="col-1 align-middle">{{ $item->so_dien_thoai }}</td>
                                         <td class="col-2 align-middle">{{ $item->dia_chi }}</td>
                                         <td>{{ $item->vai_tro }}</td>
-                                        <td class="col-2 align-middle text-center"><a href=""><button type="button" class="btn btn-secondary btn-sm">Sửa</button></a> | 
+                                        <td class="col-2 align-middle"><a href=""><button type="button" class="btn btn-secondary btn-sm">Sửa</button></a> | 
                                             <a href=""><button type="button" class="btn btn-secondary btn-sm">Xóa</button></a>
                                         </td>
                                     </tr>
-                                {{-- @endif --}}
+                                @endif
                             @endforeach                        
                         </tbody>
                     </table>

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->boolean('phuong_thuc_thanh_toan');
             $table->boolean('trang_thai');
             $table->boolean('thanh_toan');
-            $table->unsignedBigInteger('tai_khoan_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }

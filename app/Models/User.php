@@ -6,21 +6,34 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
+    function getAll($vai_tro)
+    {
+        $tai_khoan = DB::table('users')
+        ->select('*');
+        if ($vai_tro == 1 || $vai_tro == 0) {
+            $tai_khoan
+            ->where('vai_tro', $vai_tro)
+            ->where('trang_thai', 0);
+        }
+        return $tai_khoan->orderBy('id', 'asc')->get();
+    }
     use HasApiTokens, HasFactory, Notifiable;
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'ho_va_ten',
+        'ten_dang_nhap',
         'email',
         'password',
+        'vai_tro'
     ];
 
     /**
