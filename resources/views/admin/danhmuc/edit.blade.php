@@ -9,20 +9,25 @@
 </div>
 <div class="card shadow mb-4">
     <div class="card-body">
-        <form action="{{route('danhmuc.edit', $item->id)}}" method="post" class="form">
-            <input type="hidden" name="id" value="{{$item->id}}">
+        <form action="{{route('danhmuc.update', $danhmuc->id)}}" method="post" class="form">
+        @csrf
+        @method('PUT')
+
+            <input type="hidden" name="id" value="{{$danhmuc->id}}">
             <div class="mb-3">
                 <label for="" class="form-label">Mã loại</label>
-                <input type="text" name="maloai" id="" class="form-control" value="" disabled>
+                <input type="text" name="id" id="" class="form-control" value="{{$danhmuc->id}}" disabled>
             </div>
             <div class="mb-3">
                 <label for="tendm" class="form-label">Danh mục</label>
-                <input type="text" name="tendm" id="tendm" class="form-control" value="<?=$tendm?>" placeholder="Nhập tên danh mục...">
-                <p class="Err mt-1"><?=$tendmErr?></p>
+                <input type="text" name="ten_danh_muc" id="tendm" class="form-control @error('ten_danh_muc') is-invalid @enderror" value="{{$danhmuc->ten_danh_muc}}" placeholder="Nhập tên danh mục...">
+                @error('ten_danh_muc')
+                        <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div>
                 <button type="submit" name="submit" class="btn btn-success">Xác nhận</button>
-                <a href="?act=listdm"><button type="button" class="btn btn-success">Quay lại</button></a>
+                <a href="{{route('danhmuc.index')}}"><button type="button" class="btn btn-success">Quay lại</button></a>
             </div>
         </form>
     </div>

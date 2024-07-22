@@ -35,6 +35,7 @@ Route::middleware('auth.admin')->group(function(){
     Route::resource('donhang', DonHangController::class);
     Route::resource('taikhoan', UserController::class);
 });
+//   Route::delete('{id}/get',[SanPhamController::class, 'delete'])->name('delete'); //route riêng biệt
 
 
 Route::group(['prefix'=>'client'], function(){

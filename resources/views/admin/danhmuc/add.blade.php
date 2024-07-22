@@ -9,14 +9,19 @@
 </div>
 <div class="card shadow mb-4">
     <div class="card-body">
-        <form action="?act=adddm" method="post" class="form">
+        <form action="{{route('danhmuc.store')}}" method="post" class="form">
+            @csrf
+            
             <div class="mb-3">
                 <label for="" class="form-label">Mã loại</label>
                 <input type="text" name="id" id="" class="form-control" disabled>
             </div>
             <div class="mb-3">
                 <label for="tendm" class="form-label">Danh mục</label>
-                <input type="text" name="ten_danh_muc" id="ten_danh_muc" class="form-control" placeholder="Nhập tên danh mục..." value="">
+                <input type="text" name="ten_danh_muc" id="ten_danh_muc" class="form-control @error('ten_danh_muc') is-invalid @enderror" placeholder="Nhập tên danh mục..." value="{{old('ten_danh_muc')}}">
+                @error('ten_danh_muc')
+                        <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div>
                 <button type="submit" name="submit" class="btn btn-success">Xác nhận</button>

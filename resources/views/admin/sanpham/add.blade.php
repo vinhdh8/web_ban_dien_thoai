@@ -13,32 +13,50 @@
 
             <div class="mb-3">
                 <label for="tensp" class="form-label">Tên sản phẩm</label>
-                <input type="text" class="form-control" id="ten_san_pham" name="ten_san_pham" placeholder="Nhập tên sản phẩm..." value="">
+                <input type="text" class="form-control @error('ten_san_pham') is-invalid @enderror " id="ten_san_pham" name="ten_san_pham" placeholder="Nhập tên sản phẩm..." value="{{old('ten_san_pham')}}">
+                @error('ten_san_pham')
+                        <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
-                <label for="gia" class="form-label">Giá</label>
-                <input type="number" class="form-control" id="gia" name="gia" placeholder="Nhập giá..." value="">
+                <label for="gia" class="form-label ">Giá</label>
+                <input type="number" class="form-control @error('gia') is-invalid @enderror" id="gia" name="gia" placeholder="Nhập giá..." value="{{old('gia')}}">
+                @error('gia')
+                        <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
-                <label for="image" class="form-label">Tải ảnh lên:</label>
-                <input type="file" name="hinh_anh" id="hinh_anh" class="form-control-file border">
+                <label for="image" class="form-label ">Tải ảnh lên:</label>
+                <input type="file" name="hinh_anh" id="hinh_anh" class="form-control-file border @error('hinh_anh') is-invalid @enderror">
+                @error('hinh_anh')
+                        <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="soluong" class="form-label">Số lượng</label>
-                <input type="number" class="form-control" id="so_luong" name="so_luong" placeholder="Nhập số lượng..." value="">
+                <input type="number" class="form-control @error('so_luong') is-invalid @enderror" id="so_luong" name="so_luong" placeholder="Nhập số lượng..." value="{{old('so_luong')}}">
+                @error('so_luong')
+                        <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="mota">Mô tả</label>
-                <textarea class="form-control" rows="5" id="mo_ta" name="mo_ta" placeholder="Nhập mô tả..."></textarea>
+                <textarea class="form-control @error('mo_ta') is-invalid @enderror" rows="5" id="mo_ta" name="mo_ta" placeholder="Nhập mô tả..." ></textarea>
+                @error('mo_ta')
+                        <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="sel1">Danh mục</label>
-                <select class="form-control" id="sel1" name="danhmuc">
-                    @foreach($danh_mucs as $danhmuc){
-                        <option value="{{$danhmuc->id}}">{{$danhmuc->ten_danh_muc}}</option>
-                    }
+                <select class="form-control @error('danh_muc_id') is-invalid @enderror" id="sel1" name="danh_muc_id">
+                <option selected>--Chọn danh mục---</option>
+                    @foreach($danh_mucs as $danhmuc)
+                        <option value="{{$danhmuc->id}}" {{ old('danh_muc_id') == $danhmuc->id ?'selected': '' }}> {{$danhmuc->ten_danh_muc}} </option>
                     @endforeach
                 </select>
+                @error('danh_muc_id')
+                        <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div>
                 <button type="submit" name="submit" class="btn btn-success">Xác nhận</button>

@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
                 [
                     'ho_va_ten' => 'Đặng Hồng Vinh',
                     'ten_dang_nhap' => 'Vinhdh8',
-                    'mat_khau' => Hash::make('123456789'),
+                    'password' => Hash::make('123456789'),
                     'email' => 'vinhdh8@gmail.com',
                     'so_dien_thoai' => '0868215097',
                     'dia_chi' => 'Nam Từ Liêm, Hà Nội',
@@ -31,7 +31,7 @@ class UserSeeder extends Seeder
                 [
                     'ho_va_ten' => 'Nguyễn Thiện Giáp',
                     'ten_dang_nhap' => 'sunkenvalley',
-                    'mat_khau' => Hash::make('Thiengiap_2004'),
+                    'password' => Hash::make('Thiengiap_2004'),
                     'email' => 'thiengiapnguyen04@gmail.com',
                     'so_dien_thoai' => '0357864779',
                     'dia_chi' => 'Nam Từ Liêm, Hà Nội',
@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
                 [
                     'ho_va_ten' => 'Nguyễn Lan Anh',
                     'ten_dang_nhap' => 'lananh',
-                    'mat_khau' => Hash::make('123456789'),
+                    'password' => Hash::make('123456789'),
                     'email' => 'anhttlph34075@fpt.edu.vn',
                     'so_dien_thoai' => '0912345677',
                     'dia_chi' => 'Ba Đình, Hà Nội',
@@ -51,7 +51,7 @@ class UserSeeder extends Seeder
                 [
                     'ho_va_ten' => 'Trần Đức Bảo',
                     'ten_dang_nhap' => 'baotd',
-                    'mat_khau' => Hash::make('123456789'),
+                    'password' => Hash::make('123456789'),
                     'email' => 'baotdph31838@fpt.edu.vn',
                     'so_dien_thoai' => '0912345674',
                     'dia_chi' => 'Ba Đình, Hà Nội',

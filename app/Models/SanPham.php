@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\DB;
 class SanPham extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'ten_san_pham',
+        'gia',
+        'hinh_anh',
+        'so_luong',
+        'mo_ta',
+        'danh_muc_id',
+    ];
+    
 
     public function getAll(){
         $san_pham = DB::table('san_phams')

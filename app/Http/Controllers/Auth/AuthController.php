@@ -49,7 +49,8 @@ class AuthController extends Controller
             $password = $request->input('password');
             if(Auth::attempt(['ten_dang_nhap' => $ten_dang_nhap, 'password' => $password])){
                 return redirect()->intended('/');
-            }else{
+            }
+            else{
                 Session::flash('loginError', 'Tên đăng nhập hoặc mật khẩu không đúng');
                 return redirect()->intended('/login');
             }
