@@ -3,7 +3,6 @@
     <!-- Begin Page Content -->
 <div class="container-fluid">
     <h1 class="h3 mb-2 text-gray-800 mb-5">Danh sách sản phẩm</h1>
-    <form action="{{route('sanpham.index')}}" method="post">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <button type="button" class="btn btn-secondary btn-sm" onclick="">Chọn tất cả</button>
@@ -67,7 +66,6 @@
                 </div>
             </div>
         </div>
-    </form>
 </div>
 <!-- /.container-fluid -->
 @endsection

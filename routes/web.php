@@ -19,12 +19,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('client.index');
-});
-
-// Route::get('/', [ClientController::class, 'index']);
-
+// Route::get('/', function () {
+//     return view('client.index');
+// });
 // controller
 Route::middleware('auth.admin')->group(function(){
     Route::get('/admin', function(){
@@ -38,8 +35,9 @@ Route::middleware('auth.admin')->group(function(){
 //   Route::delete('{id}/get',[SanPhamController::class, 'delete'])->name('delete'); //route riêng biệt
 
 
-Route::group(['prefix'=>'client'], function(){
-    
+Route::group(['prefix'=>'/'], function(){
+    Route::get('/', [ClientController::class, 'index']);
+    Route::get('/sanphamclient', [ClientController::class, 'sanphamclient'])->name('sanphamclient');
 });
 
 // Auth
