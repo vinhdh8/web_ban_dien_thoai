@@ -89,7 +89,7 @@
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ route('danhmuc.index') }}">Danh sách danh mục</a>
-                        <a class="collapse-item" href="" style="background-color: #48dbfb;">
+                        <a class="collapse-item" href="{{ route('danhmuc.create') }}" style="background-color: #48dbfb;">
                             <i class="fas fa-fw fa-plus" style="color: #576574;"></i>
                             <span>Thêm mới</span></a>
                     </div>

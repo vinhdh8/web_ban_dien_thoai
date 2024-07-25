@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\DB;
 class DanhMuc extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'ten_danh_muc'
+    ];
 
     public function getAll(){
         $danh_muc = DB::table('danh_mucs')

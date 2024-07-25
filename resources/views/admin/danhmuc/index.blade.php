@@ -1,6 +1,12 @@
 @extends('layout.admin')
 @section('content')
     <!-- Begin Page Content -->
+    @if (session()->has('success'))
+    <div class="alert alert-success">
+        {{ session()->get('success')}}   
+    </div>
+        
+    @endif
 <div class="container-fluid">
     <h1 class="h3 mb-2 text-gray-800 mb-5">Danh sách danh mục</h1>
     <form action="?act=listdm" method="post">

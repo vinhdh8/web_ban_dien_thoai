@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreCategoryRequest;
 use App\Models\DanhMuc;
+use Faker\Extension\Helper;
+use GuzzleHttp\Psr7\Header;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Validator;
 
 class DanhMucController extends Controller
 {
@@ -31,14 +35,18 @@ class DanhMucController extends Controller
     public function create()
     {
         //
+        return view('admin.danhmuc.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreCategoryRequest $request)
     {
         //
+        DanhMuc::query()->create($request->all());
+        return redirect()->route('danhmuc.index')->with('success', 'Thao tác thành công');
+        //   dd($request->all());
     }
 
     /**
