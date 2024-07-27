@@ -19,9 +19,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('client.index');
-// });
+Route::get('/', function () {
+    return view('client.index');
+});
+
+// Route::get('/', [ClientController::class, 'index']);
+
 // controller
 Route::middleware('auth.admin')->group(function(){
     Route::get('/admin', function(){
@@ -32,12 +35,9 @@ Route::middleware('auth.admin')->group(function(){
     Route::resource('donhang', DonHangController::class);
     Route::resource('taikhoan', UserController::class);
 });
-//   Route::delete('{id}/get',[SanPhamController::class, 'delete'])->name('delete'); //route riêng biệt
 
-
-Route::group(['prefix'=>'/'], function(){
-    Route::get('/', [ClientController::class, 'index']);
-    Route::get('/sanphamclient', [ClientController::class, 'sanphamclient'])->name('sanphamclient');
+Route::group(['prefix'=>'client'], function(){
+    
 });
 
 // Auth
@@ -46,4 +46,3 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/register', [AuthController::class, 'showFormRegister']);
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-//view
