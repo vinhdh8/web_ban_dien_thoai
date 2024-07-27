@@ -1,6 +1,6 @@
 @extends('layout.client')
 @section('content')
-    <!--container-->
+<!--container-->
 <div class="slider-area">
     <div class="slider-active swiper-container">
         <div class="swiper-wrapper">
@@ -92,43 +92,42 @@
                 <div class="section-title-1">
                     <h2>Hot Sale Hôm Nay</h2>
                 </div>
-                
+
             </div>
         </div>
         <div class="product-slider-active-1 swiper-container">
             <div class="swiper-wrapper">
+                @foreach($sanpham as $product)
                 <div class="swiper-slide">
                     <div class="product-wrap" data-aos="fade-up" data-aos-delay="">
                         <div class="product-img img-zoom mb-25">
-                            <a href="">
-                                <img src="" alt="">
+                            <a href=" {{url('/'.$product->id)}}">
+                                <img src="{{Storage::url($product->hinh_anh)}}" alt="{{$product->ten_san_pham}}">
                             </a>
                             <div class="product-badge badge-top badge-right badge-pink">
-                                <span>-%</span>
+                                <span>-20%</span>
                             </div>
                             <div class="product-action-2-wrap">
-                                
-                                    <button data-id="" onclick="" class="product-action-btn-2" title="Add To Cart"><i class="pe-7s-cart"></i> Thêm Vào Giỏ Hàng</button>
-                                
-                                    <button class="product-action-btn-2">Đang hết hàng</button>
-                                
+
+                                <button data-id="{{$product->id}}" onclick="" class="product-action-btn-2" title="Add To Cart"><i class="pe-7s-cart"></i> Thêm Vào Giỏ Hàng</button>
                             </div>
                         </div>
                         <div class="product-content">
-                            <h3><a href=""></a></h3>
+                            <h3><a href="">{{$product->ten_san_pham }}</a></h3>
                             <div class="product-price">
-                                <span class="new-price">₫</span>
-                                <span class="old-price">₫</span>
+                                <span class="new-price">{{$product->gia}}₫</span>
+                                <span class="old-price">{{$product->gia}}₫</span>
                             </div>
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
             <div class="product-prev-1 product-nav-1" data-aos="fade-up" data-aos-delay="200"><i class="fa fa-angle-left"></i></div>
             <div class="product-next-1 product-nav-1" data-aos="fade-up" data-aos-delay="200"><i class="fa fa-angle-right"></i></div>
         </div>
     </div>
-</div> 
+</div>
 <div class="product-area pb-60">
     <div class="container">
         <div class="section-title-tab-wrap mb-75">
@@ -139,34 +138,34 @@
         <!--Danh mục-->
         <div id="pro-1" class="tab-pane">
             <div class="row">
-
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                        <div class="product-wrap mb-35" data-aos="fade-up" data-aos-delay="200">
-                            <div class="product-img img-zoom mb-25">
-                                <a href="">
-                                    <img src="" alt="">
-                                </a>
-                                <div class="product-badge badge-top badge-right badge-pink">
-                                    <span>-%</span>
-                                </div>
-                                <div class="product-action-2-wrap">
-                                    
-                                        <button data-id="" onclick="" class="product-action-btn-2" title="Add To Cart"><i class="pe-7s-cart"></i> Thêm Vào Giỏ Hàng</button>
-                                    
-                                        <button class="product-action-btn-2">Đang hết hàng</button>
-                                    
-                                </div>
+            @foreach($listsanpham as $product)
+                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                    <div class="product-wrap mb-35" data-aos="fade-up" data-aos-delay="200">
+                        <div class="product-img img-zoom mb-25">
+                            <a href="{{url('/'.$product->id)}}">
+                                <img src="{{Storage::url($product->hinh_anh)}}" alt="{{$product->ten_san_pham}}">
+                            </a>
+                            <div class="product-badge badge-top badge-right badge-pink">
+                                <span>-20%</span>
                             </div>
-                            <div class="product-content">
-                                <h3><a href=""></a></h3>
-                                <div class="product-price">
-                                    <span class="new-price">₫</span>
-                                    <span class="old-price">₫</span>
-                                </div>
+                            <div class="product-action-2-wrap">
+
+                                <button data-id="{{$product->id}}" onclick="" class="product-action-btn-2" title="Add To Cart"><i class="pe-7s-cart"></i> Thêm Vào Giỏ Hàng</button>
+
+                                <!-- <button class="product-action-btn-2">Đang hết hàng</button> -->
+
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <h3><a href="">{{$product->ten_san_pham}}</a></h3>
+                            <div class="product-price">
+                                <span class="new-price">{{$product->gia}}₫ </span>
+                                <span class="old-price">{{$product->gia}}₫</span>
                             </div>
                         </div>
                     </div>
-
+                </div>
+                @endforeach
             </div>
         </div>
     </div>

@@ -70,11 +70,11 @@
                                     <ul>
                                         <li><a href="{{ '/' }}">Trang Chủ</a></li>
                                         <li><a href="?act=gioithieu">Giới Thiệu</a></li>
-                                        <li><a href="?act=sanpham">Sản Phẩm <i class="fa-solid fa-chevron-down"></i></a> 
+                                        <li><a href="{{'/sanphamclient'}}">Sản Phẩm <i class="fa-solid fa-chevron-down"></i></a> 
                                             <ul class="sub-menu-style">
-                                                {{-- @foreach ($danh_mucs as $index => $item)
+                                                 @foreach ($danhmuc as $index => $item)
                                                     <li><a href="">{{ $item->ten_danh_muc }}</a></li>
-                                                @endforeach --}}
+                                                @endforeach
                                             </ul>
                                         </li>
                                         <li><a href="?act=tintuc">Tin Tức</a></li>
