@@ -19,14 +19,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('client.index');
+// Route::get('/', function () {
+//     return view('client.index');
+// });
+Route::prefix('/')->as('client.')->group(function(){
+    Route::get('/', [ClientController::class, 'index']);
+    Route::get('/tat-ca-sanpham', [ClientController::class, 'allSanPham'])->name('sanpham.all');
 });
 
-// Route::get('/', [ClientController::class, 'index']);
 
 // controller
-Route::middleware('auth.admin')->group(function(){
+Route::middleware('auth.admin')->prefix('admin')->as('admin.')->group(function(){
     Route::get('/admin', function(){
         return view('admin.index');
     })->name('admin');
@@ -34,10 +37,7 @@ Route::middleware('auth.admin')->group(function(){
     Route::resource('sanpham', SanPhamController::class);
     Route::resource('donhang', DonHangController::class);
     Route::resource('taikhoan', UserController::class);
-});
-
-Route::group(['prefix'=>'client'], function(){
-    
+    Route::get('/taikhoanTV', [UserController::class, 'thanhVien'])->name('thanhVien');
 });
 
 // Auth

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('san_phams', function (Blueprint $table) {
-            $table->bigInteger('gia')->change();
+            $table->double('gia_khuyen_mai');
         });
     }
 
@@ -21,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('san_phams', function (Blueprint $table) {
+            $table->dropColumn('gia_khuyen_mai');
+        });
     }
 };

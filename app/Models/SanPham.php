@@ -16,6 +16,7 @@ class SanPham extends Model
         'so_luong',
         'mo_ta',
         'danh_muc_id',
+        'gia_khuyen_mai'
     ];
     
 
@@ -26,5 +27,9 @@ class SanPham extends Model
         ->orderBy('san_phams.id', 'DESC')
         ->get();
         return $san_pham;
+    }
+
+    public function danhMuc(){
+        return $this->belongsTo(DanhMuc::class);
     }
 }
