@@ -11,15 +11,15 @@ class ClientController extends Controller
 {
     //
     public function index(){
-        $listDanhMuc = Danhmuc::all();
-        $listsanpham=SanPham::all();
-        $sanpham=SanPham::limit(8)->get();
-        return view('client.index', ['danhmuc'=>$listDanhMuc,'sanpham'=>$listsanpham,'listsanpham'=>$sanpham]);
+        // $listDanhMuc = Danhmuc::all();
+        $listsanpham = SanPham::all();
+        $sanphamHot = SanPham::limit(12)->get();
+        return view('client.index', compact('listsanpham', 'sanphamHot'));
     }
     
-    public function sanphamclient(){
-        $listDanhMuc = Danhmuc::all();
+    public function allSanPham(){
+        $listDanhMuc = DanhMuc::query()->get();
         $listsanpham = SanPham::paginate(6); // Phân trang với 10 sản phẩm mỗi trang    
-        return view('client.sanpham.sanpham',['danhmuc'=>$listDanhMuc,'sanpham'=>$listsanpham]);
+        return view('client.sanpham.allsanpham',compact('listsanpham','listDanhMuc'));
     }
 }

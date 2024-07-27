@@ -9,7 +9,7 @@
 </div>
 <div class="card shadow mb-4">
     <div class="card-body">
-        <form action="{{route('danhmuc.store')}}" method="post" class="form">
+        <form action="{{route('admin.danhmuc.store')}}" method="post" class="form">
             @csrf
             
             <div class="mb-3">
@@ -25,7 +25,7 @@
             </div>
             <div>
                 <button type="submit" name="submit" class="btn btn-success">Xác nhận</button>
-                <a href="{{route('danhmuc.index')}}"><button type="button" class="btn btn-success">Quay lại</button></a>
+                <a href="{{route('admin.danhmuc.index')}}"><button type="button" class="btn btn-success">Quay lại</button></a>
             </div>
         </form>
     </div>

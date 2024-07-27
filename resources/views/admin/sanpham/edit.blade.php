@@ -8,7 +8,7 @@
     </div>
     <div class="card shadow mb-4">
         <div class="card-body">
-            <form action="{{ route('sanpham.update', $sanpham->id)}}" method="post" enctype="multipart/form-data" class="form">
+            <form action="{{ route('admin.sanpham.update', $sanpham->id)}}" method="post" enctype="multipart/form-data" class="form">
                 @csrf
                 @method('PUT')
                 
@@ -29,6 +29,13 @@
                     <label for="gia" class="form-label">Giá</label>
                     <input type="number" class="form-control @error('gia') is-invalid @enderror" id="gia" name="gia" placeholder="Nhập giá..." value="{{$sanpham->gia}}">
                     @error('gia')
+                    <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="gia_khuyen_mai" class="form-label">Giá khuyến mãi</label>
+                    <input type="number" class="form-control @error('gia_khuyen_mai') is-invalid @enderror" id="gia_khuyen_mai" name="gia_khuyen_mai" placeholder="Nhập giá..." value="{{$sanpham->gia_khuyen_mai}}">
+                    @error('gia_khuyen_mai')
                     <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
@@ -68,7 +75,7 @@
                 </div>
                 <div>
                     <button type="submit" name="submit" class="btn btn-success">Xác nhận</button>
-                    <a href="{{route('sanpham.index')}}"><button type="button" class="btn btn-success">Quay lại</button></a>
+                    <a href="{{route('admin.sanpham.index')}}"><button type="button" class="btn btn-success">Quay lại</button></a>
                 </div>
             </form>
         </div>

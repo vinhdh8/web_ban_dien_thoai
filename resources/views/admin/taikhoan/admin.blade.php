@@ -38,30 +38,32 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($tai_khoans as $index => $item)
-                                @if ($item->vai_tro == 1)
-                                    @php
-                                        $item->vai_tro = "Quản trị viên"
-                                    @endphp
-                                @else
-                                    @php
-                                        $item->vai_tro = "Thành viên"
-                                    @endphp
-                                @endif
+                            @foreach ($listTaiKhoan as $index => $item)
                                 @if ($item->trang_thai==0)
-                                    <tr>
-                                        <td class="align-middle text-center"><input type="checkbox" name="select[]" value=""></td>
-                                        <td class="align-middle">{{ $index + 1 }}</td>
-                                        <td class="col-2 align-middle">{{ $item->ho_va_ten }}</td>
-                                        <td class="col-1 align-middle">{{ $item->ten_dang_nhap }}</td>
-                                        <td  class="col-1 align-middle">{{ $item->email }}</td>
-                                        <td class="col-1 align-middle">{{ $item->so_dien_thoai }}</td>
-                                        <td class="col-2 align-middle">{{ $item->dia_chi }}</td>
-                                        <td>{{ $item->vai_tro }}</td>
-                                        <td class="col-2 align-middle"><a href=""><button type="button" class="btn btn-secondary btn-sm">Sửa</button></a> | 
-                                            <a href=""><button type="button" class="btn btn-secondary btn-sm">Xóa</button></a>
-                                        </td>
-                                    </tr>
+                                    @if ($item->vai_tro == 1)
+                                        @if ($item->vai_tro == 1)
+                                            @php
+                                                $item->vai_tro = "Quản trị viên"
+                                            @endphp
+                                        @else
+                                            @php
+                                                $item->vai_tro = "Thành viên"
+                                            @endphp
+                                        @endif
+                                        <tr>
+                                            <td class="align-middle text-center"><input type="checkbox" name="select[]" value=""></td>
+                                            <td class="align-middle">{{ $index + 1 }}</td>
+                                            <td class="col-2 align-middle">{{ $item->ho_va_ten }}</td>
+                                            <td class="col-1 align-middle">{{ $item->ten_dang_nhap }}</td>
+                                            <td  class="col-1 align-middle">{{ $item->email }}</td>
+                                            <td class="col-1 align-middle">{{ $item->so_dien_thoai }}</td>
+                                            <td class="col-2 align-middle">{{ $item->dia_chi }}</td>
+                                            <td>{{ $item->vai_tro }}</td>
+                                            <td class="col-2 align-middle"><a href=""><button type="button" class="btn btn-secondary btn-sm">Sửa</button></a> | 
+                                                <a href=""><button type="button" class="btn btn-secondary btn-sm">Xóa</button></a>
+                                            </td>
+                                        </tr>
+                                    @endif
                                 @endif
                             @endforeach                        
                         </tbody>

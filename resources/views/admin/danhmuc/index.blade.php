@@ -3,13 +3,12 @@
     <!-- Begin Page Content -->
 <div class="container-fluid">
     <h1 class="h3 mb-2 text-gray-800 mb-5">Danh sách danh mục</h1>
-    <form action="{{route('danhmuc.index')}}" method="post">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <button type="button" class="btn btn-secondary btn-sm" onclick="">Chọn tất cả</button>
                 <button type="button" class="btn btn-secondary btn-sm" onclick="">Bỏ chọn tất cả</button>
                 <button type="submit" name="xoacacmucchon" class="btn btn-secondary btn-sm">Xóa các mục đã chọn</button>
-                <a href="{{route('danhmuc.create')}}"><button type="button" class="btn btn-secondary btn-sm">Nhập thêm</button></a>
+                <a href="{{route('admin.danhmuc.create')}}"><button type="button" class="btn btn-secondary btn-sm">Nhập thêm</button></a>
                 <div class="float-right">
                     <div class="input-group">
                         <input type="text" class="form-control" name="kyw" placeholder="Tìm kiếm...">
@@ -39,14 +38,13 @@
                                     <td class="col-2">{{ $index + 1 }}</td>
                                     <td>{{ $item->ten_danh_muc }}</td>
                                     <td class="col-2">
-                                        <a href="{{route('danhmuc.show', $item->id)}}">
+                                        <a href="{{route('admin.danhmuc.edit', $item->id)}}">
                                             <button type="button" class="btn btn-secondary btn-sm">Sửa</button>
                                         </a> | 
-                                        <form action="{{route('danhmuc.destroy', $item->id)}}" class="d-inline" method="POST" onclick="return confirm('Ban co muon xoa khong')">
-                                         @csrf
-                                         @method('DELETE')
-                                        
-                                         <button type="submit" class="btn btn-secondary btn-sm">Xóa</button>
+                                        <form action="{{route('admin.danhmuc.destroy', $item->id)}}" class="d-inline" method="POST" onclick="return confirm('Ban co muon xoa khong')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-secondary btn-sm">Xóa</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -65,7 +63,6 @@
                 </div>
             </div>
         </div>
-    </form>
 </div>
 <!-- /.container-fluid -->
 @endsection
