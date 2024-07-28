@@ -35,7 +35,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{'/admin'}}">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('admin.admin')}}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fa-solid fa-house"></i>
                 </div>
@@ -69,8 +69,8 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route('taikhoan.index') }}">Danh sách quản trị viên</a>
-                        <a class="collapse-item" href="">Danh sách người dùng</a>
+                        <a class="collapse-item" href="{{ route('admin.taikhoan.index') }}">Danh sách quản trị viên</a>
+                        <a class="collapse-item" href="{{ route('admin.thanhVien') }}">Danh sách người dùng</a>
                         <a class="collapse-item" href="">Tài khoản bị khóa</a>
                         <a class="collapse-item" href="" style="background-color: #48dbfb;">
                             <i class="fas fa-fw fa-plus" style="color: #576574;"></i>
@@ -88,8 +88,8 @@
                 </a>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route('danhmuc.index') }}">Danh sách danh mục</a>
-                        <a class="collapse-item" href="{{ route('danhmuc.create') }}" style="background-color: #48dbfb;">
+                        <a class="collapse-item" href="{{ route('admin.danhmuc.index') }}">Danh sách danh mục</a>
+                        <a class="collapse-item" href="{{route('admin.danhmuc.create')}}" style="background-color: #48dbfb;">
                             <i class="fas fa-fw fa-plus" style="color: #576574;"></i>
                             <span>Thêm mới</span></a>
                     </div>
@@ -105,8 +105,8 @@
                 </a>
                 <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route('sanpham.index') }}">Danh sách sản phẩm</a>
-                        <a class="collapse-item" href="" style="background-color: #48dbfb;">
+                        <a class="collapse-item" href="{{ route('admin.sanpham.index') }}">Danh sách sản phẩm</a>
+                        <a class="collapse-item" href="{{route('admin.sanpham.create')}}" style="background-color: #48dbfb;">
                             <i class="fas fa-fw fa-plus" style="color: #576574;"></i>
                             <span>Thêm mới</span></a>
                     </div>
@@ -122,7 +122,7 @@
                 </a>
                 <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route('donhang.index') }}">Danh sách đơn hàng</a>
+                        <a class="collapse-item" href="{{ route('admin.donhang.index') }}">Danh sách đơn hàng</a>
                         <a class="collapse-item" href="">Kiểm duyệt đơn hàng <sup></sup></a>
                         <a class="collapse-item" href="">Danh sách đã giao</a>
                         <a class="collapse-item" href="">Danh sách đã hủy</a>

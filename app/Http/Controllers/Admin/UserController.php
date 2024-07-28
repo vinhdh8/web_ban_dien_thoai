@@ -8,11 +8,9 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public $tai_khoan;
-
-    public function __construct()
-    {
-        $this->tai_khoan = new User();
+    public function thanhVien(){
+        $listTaiKhoan = User::query()->get();
+        return view('admin.taikhoan.user', compact('listTaiKhoan'));
     }
     /**
      * Display a listing of the resource.
@@ -20,9 +18,8 @@ class UserController extends Controller
     public function index()
     {
         //
-        $listTaiKhoanQT = $this->tai_khoan->getAll(1);
-        return view('admin.taikhoan.index', ['tai_khoans' => $listTaiKhoanQT]);
-        
+        $listTaiKhoan = User::query()->get();
+        return view('admin.taikhoan.admin', compact('listTaiKhoan'));
     }
 
     /**

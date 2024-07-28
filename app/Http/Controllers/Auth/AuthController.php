@@ -49,7 +49,8 @@ class AuthController extends Controller
             $password = $request->input('password');
             if(Auth::attempt(['ten_dang_nhap' => $ten_dang_nhap, 'password' => $password])){
                 return redirect()->intended('/');
-            }else{
+            }
+            else{
                 Session::flash('loginError', 'Tên đăng nhập hoặc mật khẩu không đúng');
                 return redirect()->intended('/login');
             }
@@ -91,7 +92,7 @@ class AuthController extends Controller
     protected function validator(array $data){
         return Validator::make($data, [
             'ho_va_ten' => 'required|string',
-            'ten_dang_nhap' => 'required|string|max:255|unique:users,ten_dang_nhap',
+            'ten_dang_nhap' => 'required|string|max:20|unique:users,ten_dang_nhap',
             'password' => 'required|string|min:8',
             'email' => 'required|string|email|max:255|unique:users,email',
         ],

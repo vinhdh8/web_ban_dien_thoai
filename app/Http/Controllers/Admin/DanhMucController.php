@@ -33,9 +33,8 @@ class DanhMucController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        //
-        return view('admin.danhmuc.create');
+    {       
+        return view(('admin.danhmuc.add'));
     }
 
     /**
@@ -43,10 +42,21 @@ class DanhMucController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        //
-        DanhMuc::query()->create($request->all());
-        return redirect()->route('danhmuc.index')->with('success', 'Thao tác thành công');
-        //   dd($request->all());
+        $request->validate([
+            'ten_danh_muc' => 'required|string|max:255|unique:danh_mucs,ten_danh_muc',
+        ],
+        [
+            'ten_danh_muc.required' => 'Tên danh mục không được trống',
+            'ten_danh_muc.max' => 'Tên danh mục không quá 255 ký tự',
+            'ten_danh_muc.unique'=>'Tên danh mục đã có'
+        ]
+    );
+        // $this->danh_muc->addDanhMuc($request-> ten_danh_muc); //làm theo cách models
+        DanhMuc::create([
+            'ten_danh_muc' => $request->ten_danh_muc,
+        ]);
+
+        return redirect()->route('admin.danhmuc.index')->with('success', 'Danh mục đã được thêm.');
     }
 
     /**
@@ -54,7 +64,7 @@ class DanhMucController extends Controller
      */
     public function show(string $id)
     {
-        //
+        
     }
 
     /**
@@ -62,7 +72,8 @@ class DanhMucController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $danhmuc = DanhMuc::findOrFail($id);
+        return view('admin.danhmuc.edit', compact('danhmuc'));
     }
 
     /**
@@ -70,14 +81,36 @@ class DanhMucController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'ten_danh_muc' => 'required|string|max:255',
+        ],
+        [
+            'ten_danh_muc.required' => 'Tên danh mục không được trống',
+            'ten_danh_muc.max' => 'Tên danh mục không quá 255 ký tự',
+        ]
+    );
+       $editdanhmuc =DanhMuc::findOrFail($id);
+       $editdanhmuc->update([
+        'ten_danh_muc' =>$request->ten_danh_muc
+       ]);
+       
+       return redirect()->route('admin.danhmuc.index')->with('success', 'Sửa thành công');
     }
 
     /**
      * Remove the specified resource from storage.
      */
+    //c1
     public function destroy(string $id)
     {
-        //
+        $danhmuc=DanhMuc::findOrFail($id);
+        $danhmuc->delete();
+        return redirect()->route('admin.danhmuc.index')->with('success','Xóa thành công');
     }
+    // c2
+    // public function destroy(string $id)
+    // {
+    //    $this->danh_muc->deleteDanhMuc($id);
+    //     return redirect()->route('danhmuc.index')->with('success', 'Xóa danh mục thành công');
+    // }
 }

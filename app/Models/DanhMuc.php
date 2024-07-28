@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\DB;
 class DanhMuc extends Model
 {
     use HasFactory;
-    protected $fillable = [
+
+    protected $fillable= [
         'ten_danh_muc'
     ];
 
@@ -20,4 +21,19 @@ class DanhMuc extends Model
         ->get();
         return $danh_muc;
     }
+    //Sử dụng model
+    // public function addDanhMuc($ten_danh_muc){
+    //       return DB::table('danh_mucs')
+    //       ->insert([
+    //         'ten_danh_muc' => $ten_danh_muc,
+    //         'created_at' => now(),
+    //         'updated_at' => now()
+    //       ]);
+    // }
+    //c1
+    // public function deleteDanhMuc($id){
+    //     return DB::table('danh_mucs')
+    //         ->where('id', $id)
+    //         ->delete();
+    // }
 }

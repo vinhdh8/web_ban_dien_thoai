@@ -4,19 +4,22 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Models\DanhMuc;
+use App\Models\SanPham;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
     //
-    public $danh_muc;
-
-    public function __construct()
-    {
-        $this->danh_muc = new DanhMuc();
-    }
     public function index(){
-        $listDanhMuc = $this->danh_muc->getAll();
-        return view('client.index', ['danh_mucs'=>$listDanhMuc]);
+        // $listDanhMuc = Danhmuc::all();
+        $listsanpham = SanPham::all();
+        $sanphamHot = SanPham::limit(12)->get();
+        return view('client.index', compact('listsanpham', 'sanphamHot'));
+    }
+    
+    public function allSanPham(){
+        $listDanhMuc = DanhMuc::query()->get();
+        $listsanpham = SanPham::paginate(6); // Phân trang với 10 sản phẩm mỗi trang    
+        return view('client.sanpham.allsanpham',compact('listsanpham','listDanhMuc'));
     }
 }
