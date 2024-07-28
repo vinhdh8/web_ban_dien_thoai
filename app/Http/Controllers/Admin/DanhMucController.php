@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreCategoryRequest;
 use App\Models\DanhMuc;
+use Faker\Extension\Helper;
+use GuzzleHttp\Psr7\Header;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Validator;
 
 class DanhMucController extends Controller
 {
@@ -29,15 +33,14 @@ class DanhMucController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        
+    {       
         return view(('admin.danhmuc.add'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreCategoryRequest $request)
     {
         $request->validate([
             'ten_danh_muc' => 'required|string|max:255|unique:danh_mucs,ten_danh_muc',
