@@ -13,7 +13,7 @@
                                 <div class="slider-content-1 slider-animated-1">
                                     <h1 class="animated" >{{$banner->sanPham ? $banner->sanPham->ten_san_pham : 'Product Name' }}</h1>
                                     <div class="slider-btn btn-hover">
-                                        <a href="{{ route('client.sanpham.detail', $banner->san_pham_id) }}" class="btn animated">
+                                        <a href="{{ route('client.sanpham.chitiet', $banner->san_pham_id) }}" class="btn animated">
                                             Shop Now <i class=" ti-arrow-right "></i>
                                         </a>
                                     </div>
