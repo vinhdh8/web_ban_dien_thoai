@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DonHangController;
 use App\Http\Controllers\Admin\SanPhamController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Client\ClientController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +38,7 @@ Route::middleware('auth.admin')->prefix('admin')->as('admin.')->group(function()
     Route::resource('sanpham', SanPhamController::class);
     Route::resource('donhang', DonHangController::class);
     Route::resource('taikhoan', UserController::class);
+    Route::resource('banner', BannerController::class);
     Route::get('/taikhoanTV', [UserController::class, 'thanhVien'])->name('thanhVien');
 });
 
