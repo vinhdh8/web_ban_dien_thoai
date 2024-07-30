@@ -26,7 +26,6 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('/')->as('client.')->group(function(){
     Route::get('/', [ClientController::class, 'index']);
     Route::get('/tat-ca-sanpham', [ClientController::class, 'allSanPham'])->name('sanpham.all');
-    Route::get('/chitietsanpham/{id}',[ClientController::class,'detailSanPham'])->name('sanpham.detail');
 });
 
 
