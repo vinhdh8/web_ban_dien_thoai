@@ -72,7 +72,7 @@
                         <a class="collapse-item" href="{{ route('admin.taikhoan.index') }}">Danh sách quản trị viên</a>
                         <a class="collapse-item" href="{{ route('admin.thanhVien') }}">Danh sách người dùng</a>
                         <a class="collapse-item" href="">Tài khoản bị khóa</a>
-                        <a class="collapse-item" href="" style="background-color: #48dbfb;">
+                        <a class="collapse-item" href="{{route('admin.taikhoan.create')}}" style="background-color: #48dbfb;">
                             <i class="fas fa-fw fa-plus" style="color: #576574;"></i>
                             <span>Thêm mới</span></a>
                     </div>

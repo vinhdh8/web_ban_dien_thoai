@@ -59,7 +59,7 @@
                                 <td class="col-1 align-middle">{{ $item->so_dien_thoai }}</td>
                                 <td class="col-2 align-middle">{{ $item->dia_chi }}</td>
                                 <td>{{ $item->vai_tro }}</td>
-                                <td class="col-2 align-middle"><a href=""><button type="button" class="btn btn-secondary btn-sm">Sửa</button></a> |
+                                <td class="col-2 align-middle"><a href="{{route('admin.taikhoan.edit', $item->id)}}"><button type="button" class="btn btn-secondary btn-sm">Sửa</button></a> |
                                     <form action="" class="d-inline" method="POST" onclick="return confirm('Ban co muon xoa khong')">
                                         @csrf
                                         @method('DELETE')

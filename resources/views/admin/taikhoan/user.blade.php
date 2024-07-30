@@ -9,7 +9,7 @@
                 <button type="button" class="btn btn-secondary btn-sm" onclick="">Chọn tất cả</button>
                 <button type="button" class="btn btn-secondary btn-sm" onclick="">Bỏ chọn tất cả</button>
                 <button type="submit" name="xoacacmucchon" class="btn btn-secondary btn-sm">Khóa các tài khoản đã chọn</button>
-                <a href="?act=addtk"><button type="button" class="btn btn-secondary btn-sm">Nhập thêm</button></a>
+                <a href="{{route('admin.taikhoan.create')}}"><button type="button" class="btn btn-secondary btn-sm">Nhập thêm</button></a>
                 <div class="float-right">
                     <div class="input-group">
                         <input type="text" class="form-control" name="kyw" placeholder="Tìm kiếm...">
@@ -59,7 +59,7 @@
                                             <td class="col-1 align-middle">{{ $item->so_dien_thoai }}</td>
                                             <td class="col-2 align-middle">{{ $item->dia_chi }}</td>
                                             <td>{{ $item->vai_tro }}</td>
-                                            <td class="col-2 align-middle"><a href=""><button type="button" class="btn btn-secondary btn-sm">Sửa</button></a> | 
+                                            <td class="col-2 align-middle"><a href="{{route('admin.taikhoan.edit', $item->id)}}"><button type="button" class="btn btn-secondary btn-sm">Sửa</button></a> | 
                                                 <a href=""><button type="button" class="btn btn-secondary btn-sm">Khóa</button></a>
                                             </td>
                                         </tr>
