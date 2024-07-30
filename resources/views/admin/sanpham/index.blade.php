@@ -27,6 +27,7 @@
                             <tr>
                                 <th></th>
                                 <th>STT</th>
+                                <th>Mã loại</th>
                                 <th>Tên sản phẩm</th>
                                 <th>Giá</th>
                                 <th>Giá khuyến mãi</th>
@@ -40,10 +41,11 @@
                             @foreach ($listSanPham as $index => $item)
                                 <tr>
                                     <td class="align-middle text-center"><input type="checkbox" name="select[]" id="" value=""></td>
-                                    <td class=" align-middle">{{ $index + 1 }}</td>
+                                    <td class="col-1 align-middle">{{  $listSanPham->firstItem() + $index }}</td>
+                                    <td class="col-1 align-middle">XSM-{{ $item->id }}</td>
                                     <td class="col-2 align-middle">{{ $item->ten_san_pham }}</td>
-                                    <td class="col-2 align-middle">{{ number_format($item->gia) }}đ</td>
-                                    <td class="col-2 align-middle">{{ empty(number_format($item->gia_khuyen_mai)) ? 0 : number_format($item->gia_khuyen_mai)  }}đ</td>
+                                    <td class="col-1 align-middle">{{ number_format($item->gia) }}đ</td>
+                                    <td class="col-1 align-middle">{{ empty(number_format($item->gia_khuyen_mai)) ? 0 : number_format($item->gia_khuyen_mai)  }}đ</td>
                                     <td  class="col-1 align-middle"><img src="{{Storage::url($item->hinh_anh) }}" alt="err" height="60px"></td>
                                     <td  class="align-middle">{{ $item->so_luong }}</td>
                                     <td  class="col-1 align-middle">{{ $item->ten_danh_muc }}</td>
@@ -60,9 +62,9 @@
                             @endforeach
                         </tbody>
                     </table>  
-                    <div class="phantrang">
+                    <div class="d-flex justify-content-end">
                         <ul>
-
+                          {{$listSanPham->links()}}
                         </ul>
                     </div>  
                 </div>

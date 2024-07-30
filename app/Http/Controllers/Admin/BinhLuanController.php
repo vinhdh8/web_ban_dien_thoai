@@ -1,25 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\User;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class BinhLuanController extends Controller
 {
-    public function thanhVien(){
-        $listTaiKhoan = User::query()->get();
-        return view('admin.taikhoan.user', compact('listTaiKhoan'));
-    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         //
-        $listTaiKhoan = User::query()->get();
-        return view('admin.taikhoan.admin', compact('listTaiKhoan'));
     }
 
     /**
@@ -27,7 +19,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.taikhoan.add');
+        //
     }
 
     /**

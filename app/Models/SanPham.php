@@ -24,12 +24,16 @@ class SanPham extends Model
         $san_pham = DB::table('san_phams')
         ->join('danh_mucs', 'san_phams.danh_muc_id', '=', 'danh_mucs.id')
         ->select('san_phams.*', 'danh_mucs.ten_danh_muc')
-        ->orderBy('san_phams.id', 'DESC')
-        ->get();
+        ->orderBy('san_phams.id', 'ASC')->paginate(5);
         return $san_pham;
     }
 
     public function danhMuc(){
         return $this->belongsTo(DanhMuc::class);
+    }
+
+    public function banners()
+    {
+        return $this->hasMany(Banner::class, 'san_pham_id'); // Specify the foreign key
     }
 }

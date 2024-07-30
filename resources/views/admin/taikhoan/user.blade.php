@@ -2,7 +2,7 @@
 @section('content')
     <!-- Begin Page Content -->
 <div class="container-fluid">
-    <h1 class="h3 mb-2 text-gray-800 mb-5">Danh sách tài khoản</h1>
+    <h1 class="h3 mb-2 text-gray-800 mb-5">Danh sách người dùng</h1>
     <form action="?act=listqtv" method="post">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -60,7 +60,7 @@
                                             <td class="col-2 align-middle">{{ $item->dia_chi }}</td>
                                             <td>{{ $item->vai_tro }}</td>
                                             <td class="col-2 align-middle"><a href=""><button type="button" class="btn btn-secondary btn-sm">Sửa</button></a> | 
-                                                <a href=""><button type="button" class="btn btn-secondary btn-sm">Xóa</button></a>
+                                                <a href=""><button type="button" class="btn btn-secondary btn-sm">Khóa</button></a>
                                             </td>
                                         </tr>
                                     @endif

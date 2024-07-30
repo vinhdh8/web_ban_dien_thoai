@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DonHangController;
 use App\Http\Controllers\Admin\SanPhamController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Client\ClientController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('/')->as('client.')->group(function(){
     Route::get('/', [ClientController::class, 'index']);
     Route::get('/tat-ca-sanpham', [ClientController::class, 'allSanPham'])->name('sanpham.all');
+    Route::get('/chitietsanpham/{id}',[ClientController::class,'detailSanPham'])->name('sanpham.detail');
 });
 
 
@@ -37,6 +39,7 @@ Route::middleware('auth.admin')->prefix('admin')->as('admin.')->group(function()
     Route::resource('sanpham', SanPhamController::class);
     Route::resource('donhang', DonHangController::class);
     Route::resource('taikhoan', UserController::class);
+    Route::resource('banner', BannerController::class);
     Route::get('/taikhoanTV', [UserController::class, 'thanhVien'])->name('thanhVien');
 });
 
