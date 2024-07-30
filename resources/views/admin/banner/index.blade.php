@@ -8,13 +8,13 @@
         
     @endif
 <div class="container-fluid">
-    <h1 class="h3 mb-2 text-gray-800 mb-5">Danh sách danh mục</h1>
+    <h1 class="h3 mb-2 text-gray-800 mb-5">Danh sách Banner</h1>
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <button type="button" class="btn btn-secondary btn-sm" onclick="">Chọn tất cả</button>
                 <button type="button" class="btn btn-secondary btn-sm" onclick="">Bỏ chọn tất cả</button>
                 <button type="submit" name="xoacacmucchon" class="btn btn-secondary btn-sm">Xóa các mục đã chọn</button>
-                <a href="{{route('admin.danhmuc.create')}}"><button type="button" class="btn btn-secondary btn-sm">Nhập thêm</button></a>
+                <a href="{{route('admin.banner.create')}}"><button type="button" class="btn btn-secondary btn-sm">Nhập thêm</button></a>
                 <div class="float-right">
                     <div class="input-group">
                         <input type="text" class="form-control" name="kyw" placeholder="Tìm kiếm...">
@@ -32,24 +32,26 @@
                         <thead class="thead-light">
                             <tr>
                                 <th></th>
-                                <th>STT</th>
                                 <th>Mã loại</th>
-                                <th>Tên danh mục</th>
+                                <th>Mã sản phẩm</th>
+                                <th>Ảnh</th>
+                                <th>Ngày đăng</th>
                                 <th>Chức năng</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($danh_mucs as $index => $item)
+                            @foreach ($listBan as $index => $item)
                                 <tr>
                                     <td class="col-1 text-center"><input type="checkbox" name="select[]" value=""></td>
-                                    <td class="col-2">{{ $index + 1 }}</td>
-                                    <td class="col-2">{{ $item->id }}</td>
-                                    <td>{{ $item->ten_danh_muc }}</td>
+                                    <td class="col-1">{{ $item->id}}</td>
+                                    <td class="col-2">XSM-{{ $item->san_pham_id}}</td>
+                                    <td  class="col-2 align-middle"><img src="{{Storage::url($item->hinh_anh) }}" alt="err" height="100px"></td>
+                                    <td class="col-2">{{ $item->ngay_dang }}</td>
                                     <td class="col-2">
-                                        <a href="{{route('admin.danhmuc.edit', $item->id)}}">
+                                        <a href="{{route('admin.banner.edit', $item->id)}}">
                                             <button type="button" class="btn btn-secondary btn-sm">Sửa</button>
                                         </a> | 
-                                        <form action="{{route('admin.danhmuc.destroy', $item->id)}}" class="d-inline" method="POST" onclick="return confirm('Ban co muon xoa khong')">
+                                        <form action="{{route('admin.banner.destroy', $item->id)}}" class="d-inline" method="POST" onclick="return confirm('Ban co muon xoa khong')">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-secondary btn-sm">Xóa</button>
@@ -59,18 +61,8 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <!-- <div class="phantrang">
-                        <ul>
-                            <li><a class="active" href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">...</a></li>
-                            <li><a href="#">Next</a></li>
-                        </ul>
-                    </div> -->
                 </div>
             </div>
         </div>
 </div>
-<!-- /.container-fluid -->
 @endsection

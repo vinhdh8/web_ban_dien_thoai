@@ -4,15 +4,16 @@
 <div class="slider-area">
     <div class="slider-active swiper-container">
         <div class="swiper-wrapper">
+            @foreach($listBanner as $banner)
             <div class="swiper-slide">
                 <div class="intro-section slider-height-1 slider-content-center bg-img single-animation-wrap slider-bg-color-1" style="background-image:url(../assets/giao_dien_home/assets/images/slider/slider-bg-1.jpg)">
                     <div class="container">
                         <div class="row align-items-center">
                             <div class="col-lg-6 col-md-6">
                                 <div class="slider-content-1 slider-animated-1">
-                                    <h1 class="animated"></h1>
+                                    <h1 class="animated" >{{$banner->sanPham ? $banner->sanPham->ten_san_pham : 'Product Name' }}</h1>
                                     <div class="slider-btn btn-hover">
-                                        <a href="" class="btn animated">
+                                        <a href="{{ route('client.sanpham.detail', $banner->san_pham_id) }}" class="btn animated">
                                             Shop Now <i class=" ti-arrow-right "></i>
                                         </a>
                                     </div>
@@ -20,9 +21,9 @@
                             </div>
                             <div class="col-lg-6 col-md-6">
                                 <div class="hero-slider-img-1 slider-animated-1">
-                                    <img class="animated animated-slider-img-1" src="" alt="">
+                                    <img class="animated animated-slider-img-1" src="{{Storage::url($banner->hinh_anh)}}" alt="">
                                     <div class="product-offer animated">
-                                        <h5><span>Off</span></h5>
+                                        <h5>20%<span>Off</span></h5>
                                     </div>
                                 </div>
                             </div>
@@ -30,6 +31,7 @@
                     </div>
                 </div>
             </div>
+            @endforeach
             <div class="home-slider-prev main-slider-nav"><i class="fa fa-angle-left"></i></div>
             <div class="home-slider-next main-slider-nav"><i class="fa fa-angle-right"></i></div>
         </div>

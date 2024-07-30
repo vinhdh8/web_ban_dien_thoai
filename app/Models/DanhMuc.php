@@ -17,7 +17,7 @@ class DanhMuc extends Model
     public function getAll(){
         $danh_muc = DB::table('danh_mucs')
         ->select('danh_mucs.*')
-        ->orderBy('danh_mucs.id', 'DESC')
+        ->orderBy('danh_mucs.id', 'ASC')
         ->get();
         return $danh_muc;
     }

@@ -160,7 +160,7 @@
                 </a>
                 <div id="collapseSevent" class="collapse" aria-labelledby="headingSevent" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="">Quản lý banner</a>
+                        <a class="collapse-item" href="{{route('admin.banner.index')}}">Quản lý banner</a>
                     </div>
                 </div>
             </li>
