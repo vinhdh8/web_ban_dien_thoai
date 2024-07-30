@@ -48,7 +48,7 @@
                                     @if(Auth::check())
                                         <li><a title="{{ Auth::user()->ten_dang_nhap }}" href=""><i class="pe-7s-user"></i></a>
                                             <ul class="sub-menu-style">
-                                                <li><a href="" style="font-size:13px;">Thông tin tài khoản</a></li>
+                                                <li><a href="{{route('client.profile.index')}}" style="font-size:13px;">Thông tin tài khoản</a></li>
                                                 <li><a href="" style="font-size:13px;">Đơn mua</a></li>
                                                 @if(Auth::user()->vai_tro==1)
                                                     <li><a href="{{route('admin.admin')}}" style="font-size:13px;">Quản trị viên</a></li>
@@ -74,13 +74,8 @@
                             <a title="Đăng nhập" href="?act=dangnhap"><i class="pe-7s-user"></i></a>
                         </div> -->
                         <div class="header-action-style header-action-cart">
-                            <a class="cart-active" href="#"><i class="pe-7s-shopbag"></i>
-                                <?php
-                                    // if(isset($countgh)){
-                                    //     echo '<span id="countgh" class="product-count bg-black">'.$countgh['COUNT(*)'].'</span>';
-                                    // }
-                                ?>
-                                
+                            <a href="{{route('client.giohang.list')}}"><i class="pe-7s-shopbag"></i>
+                                <span class="product-count bg-black">{{session('cart') ? count(session('cart')) : '0'}}</span>  
                             </a>
                         </div>
                         <div class="header-action-style d-block d-lg-none">

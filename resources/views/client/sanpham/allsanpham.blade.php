@@ -12,12 +12,19 @@
                                         <div class="col-lg-4 col-sm-5">
                                             <div class="product-wrap mb-35" data-aos="fade-up" data-aos-delay="200">
                                                 <div class="product-img img-zoom mb-25">
-                                                    <a href="">
+                                                    <a href="{{route('client.sanpham.chitiet', $product->id)}}">
                                                         <img src="{{Storage::url($product->hinh_anh) }}" alt="{{$product->ten_san_pham}}">
                                                     </a>
                                                     <div class="product-action-2-wrap">
                                                         @if ($product->so_luong>0)
-                                                            <button data-id="{{$product->id}}" onclick="" class="product-action-btn-2" title="Add To Cart"><i class="pe-7s-cart"></i> Thêm Vào Giỏ Hàng</button>
+                                                            <form action="{{route('client.giohang.add')}}" method="post">
+                                                                @csrf
+                                                                <div class="product-action-2-wrap">
+                                                                    <input type="hidden" name="sanPhamId" value="{{$product->id}}">
+                                                                    <input type="hidden" name="soLuong" value="1">
+                                                                    <button type="submit" data-id="" onclick="" class="product-action-btn-2" title="Add To Cart"><i class="pe-7s-cart"></i> Thêm Vào Giỏ Hàng</button>
+                                                                </div>
+                                                            </form>
                                                         @else
                                                             <button class="product-action-btn-2">Đang hết hàng</button>
                                                         @endif                                                        
@@ -26,8 +33,8 @@
                                                 <div class="product-content">
                                                     <h3><a href="">{{$product->ten_san_pham}}</a></h3>
                                                     <div class="product-price">
-                                                        <span class="{{$product->gia_khuyen_mai > 0 ? 'new-price' : 'old-price'}}">{{number_format($product->gia_khuyen_mai)}}₫</span>
-                                                        <span class="{{$product->gia_khuyen_mai == 0 ? 'new-price' : 'old-price'}}">{{number_format($product->gia)}}₫</span>
+                                                        <span class="{{$product->gia_khuyen_mai > 0 ? 'new-price' : 'old-price'}}">{{number_format($product->gia_khuyen_mai, 0, '', '.')}}₫</span>
+                                                        <span class="{{$product->gia_khuyen_mai == 0 ? 'new-price' : 'old-price'}}">{{number_format($product->gia, 0, '', '.')}}₫</span>
                                                     </div>
                                                 </div>
                                             </div>
