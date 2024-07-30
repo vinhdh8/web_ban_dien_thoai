@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Paginator::useBootstrap();
-        $listDanhMuc = SanPham::query()->get();
+        $listDanhMuc = DanhMuc::query()->get();
         View::share('listDanhMuc', $listDanhMuc);
    
     }
