@@ -18,7 +18,7 @@
                                 <li><a href="{{route('client.sanpham.all')}}">Sản Phẩm <i class="fa-solid fa-chevron-down"></i></a>
                                     <ul class="sub-menu-style">
                                         @foreach ($listDanhMuc as $item)
-                                            <li><a href="">{{ $item->ten_danh_muc }}</a></li>
+                                        <li><a href="">{{ $item->ten_danh_muc }}</a></li>
                                         @endforeach
                                     </ul>
                                 </li>
@@ -46,26 +46,28 @@
                             <nav>
                                 <ul>
                                     @if(Auth::check())
-                                        <li><a title="{{ Auth::user()->ten_dang_nhap }}" href=""><i class="pe-7s-user"></i></a>
-                                            <ul class="sub-menu-style">
-                                                <li><a href="{{route('client.profile.index')}}" style="font-size:13px;">Thông tin tài khoản</a></li>
-                                                <li><a href="" style="font-size:13px;">Đơn mua</a></li>
-                                                @if(Auth::user()->vai_tro==1)
-                                                    <li><a href="{{route('admin.admin')}}" style="font-size:13px;">Quản trị viên</a></li>
-                                                @endif
-                                                <form action="{{route('logout')}}" method="post">
-                                                    @csrf
-                                                    <li><a href="" style="font-size:13px;"><button type="submit" class="btn btn-tertiary">Đăng xuất</button></a></li>
-                                                </form>
-                                            </ul>
-                                        </li>
-                                    @else   
-                                        <li><a title="Đăng nhập" href="{{route('login')}}"><i class="pe-7s-user"></i></a>
-                                            <ul class="sub-menu-style">
-                                                <li><a href="{{route('login')}}" style="font-size:13px;">Đăng nhập</a></li>
-                                                <li><a href="{{route('register')}}" style="font-size:13px;">Đăng ký</a></li>
-                                            </ul>
-                                        </li>
+                                    <li><a title="{{ Auth::user()->ten_dang_nhap }}" href=""><i class="pe-7s-user"></i></a>
+                                        <ul class="sub-menu-style">
+                                            <li><a href="{{route('client.profile.index')}}" style="font-size:13px;">Thông tin tài khoản</a></li>
+                                            <li><a href="" style="font-size:13px;">Đơn mua</a></li>
+                                            @if(Auth::user()->vai_tro==1)
+                                            <li><a href="{{route('admin.admin')}}" style="font-size:13px;">Quản trị viên</a></li>
+                                            @endif
+                                            <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="font-size:13px;">
+                                                Đăng xuất
+                                            </a>
+                                            <form id="logout-form" action="{{route('logout')}}" method="post" style="display: none;">
+                                                @csrf
+                                            </form>
+                                        </ul>
+                                    </li>
+                                    @else
+                                    <li><a title="Đăng nhập" href="{{route('login')}}"><i class="pe-7s-user"></i></a>
+                                        <ul class="sub-menu-style">
+                                            <li><a href="{{route('login')}}" style="font-size:13px;">Đăng nhập</a></li>
+                                            <li><a href="{{route('register')}}" style="font-size:13px;">Đăng ký</a></li>
+                                        </ul>
+                                    </li>
                                     @endif
                                 </ul>
                             </nav>
@@ -75,7 +77,7 @@
                         </div> -->
                         <div class="header-action-style header-action-cart">
                             <a href="{{route('client.giohang.list')}}"><i class="pe-7s-shopbag"></i>
-                                <span class="product-count bg-black">{{session('cart') ? count(session('cart')) : '0'}}</span>  
+                                <span class="product-count bg-black">{{session('cart') ? count(session('cart')) : '0'}}</span>
                             </a>
                         </div>
                         <div class="header-action-style d-block d-lg-none">
