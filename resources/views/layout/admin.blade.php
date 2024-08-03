@@ -23,6 +23,7 @@
 
     <!-- Custom styles for this page -->
     <link href="{{ asset('import/assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+    @yield('css')
 
 </head>
 
@@ -123,9 +124,6 @@
                 <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ route('admin.donhang.index') }}">Danh sách đơn hàng</a>
-                        <a class="collapse-item" href="">Kiểm duyệt đơn hàng <sup></sup></a>
-                        <a class="collapse-item" href="">Danh sách đã giao</a>
-                        <a class="collapse-item" href="">Danh sách đã hủy</a>
                     </div>
                 </div>
             </li>
@@ -259,6 +257,7 @@
         </div>
     </div>
     <!-- Bootstrap core JavaScript-->
+    @yield('js')
     <script src="{{ asset('import/assets/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('import/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 

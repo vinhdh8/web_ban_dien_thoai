@@ -64,13 +64,10 @@
                         <div class="col-lg-12">
                             <div class="cart-shiping-update-wrapper">
                                 <div class="cart-shiping-update btn-hover">
-                                    <a href="">Tiếp tục mua sắm</a>
+                                    <a href="{{route('client.sanpham.all')}}">Tiếp tục mua sắm</a>
                                 </div>
                                 <div class="cart-clear btn-hover">
                                     <button type="submit">Cập nhật giỏ hàng</button>
-                                </div>
-                                <div class="cart-clear btn-hover">
-                                    <a href="">Dọn dẹp giỏ hàng</a>
                                 </div>
                             </div>
                         </div>
@@ -91,17 +88,7 @@
                         </div>
                     </div>
                     <div class="grand-total-btn btn-hover col-lg-6">
-                        <?php
-                            // if(isset($_SESSION['user'])){
-                            //     if(isset($countgh)){
-                            //         if($countgh['COUNT(*)']==0) $tieptucdathang="#";
-                            //         else $tieptucdathang="?act=tieptucdathang";
-                            //     }
-                            // }else{
-                            //     $tieptucdathang="?act=dangnhap";
-                            // }
-                        ?>
-                        <a class="btn theme-color" href="">Tiếp tục đặt hàng</a>
+                        <a class="btn theme-color" href="{{route('client.donhang.donhang.create')}}">Tiếp tục đặt hàng</a>
                     </div>
                 </div>
             </div>

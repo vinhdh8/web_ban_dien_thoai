@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Client\ClientController;
+use App\Http\Controllers\Client\DonHangController as ClientDonHangController;
 use App\Http\Controllers\Client\GioHangController;
 use App\Http\Controllers\Client\SanPhamController as ClientSanPhamController;
 use App\Http\Controllers\Client\UserController as ClientUserController;
@@ -33,6 +34,9 @@ Route::prefix('/')->as('client.')->group(function(){
     Route::get('/gio-hang', [GioHangController::class, 'listGioHang'])->name('giohang.list');
     Route::post('/add-gio-hang', [GioHangController::class, 'addGioHang'])->name('giohang.add');
     Route::post('/update-gio-hang', [GioHangController::class, 'updateGioHang'])->name('giohang.update');
+    Route::middleware('auth')->prefix('donhangs')->as('donhang.')->group(function(){
+        Route::resource('donhang', ClientDonHangController::class);
+    });
     Route::resource('profile', ClientUserController::class);
 });
 

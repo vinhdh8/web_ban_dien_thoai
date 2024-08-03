@@ -49,7 +49,7 @@
                                         <li><a title="{{ Auth::user()->ten_dang_nhap }}" href=""><i class="pe-7s-user"></i></a>
                                             <ul class="sub-menu-style">
                                                 <li><a href="{{route('client.profile.index')}}" style="font-size:13px;">Thông tin tài khoản</a></li>
-                                                <li><a href="" style="font-size:13px;">Đơn mua</a></li>
+                                                <li><a href="{{route('client.donhang.donhang.index')}}" style="font-size:13px;">Đơn hàng của bạn</a></li>
                                                 @if(Auth::user()->vai_tro==1)
                                                     <li><a href="{{route('admin.admin')}}" style="font-size:13px;">Quản trị viên</a></li>
                                                 @endif
