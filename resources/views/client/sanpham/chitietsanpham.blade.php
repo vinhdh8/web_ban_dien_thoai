@@ -96,6 +96,11 @@
                                         <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
+                                    @if (session('success'))
+                                    <div class="alert alert-success">
+                                        {{ session('success') }}
+                                    </div>
+                                    @endif
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-submit">

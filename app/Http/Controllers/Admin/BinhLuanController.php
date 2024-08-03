@@ -24,7 +24,15 @@ class BinhLuanController extends Controller
         $binhluans = Binhluan::with(['user','sanpham'])->get();
         return view('admin.binhluan.index',compact('binhluans'));
     }
-
+    public function toggleHide($id)
+    {
+        $binhluan = BinhLuan::findOrFail($id);
+        $binhluan->trang_thai = !$binhluan->trang_thai; // thay đổi trạng thái khi ấn 
+        // !$binhluan->trang_thai để thay đổi trạng thái nếu ấn ẩn trạng thái đang true sẽ đổi sang false
+        $binhluan->save();
+    
+        return redirect()->route('admin.binhluan.index')->with('success', 'Bình luận đã được cập nhật.');
+    }
     /**
      * Show the form for creating a new resource.
      */

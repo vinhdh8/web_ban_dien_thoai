@@ -14,16 +14,16 @@
                         <nav>
                             <ul>
                                 <li><a href="{{ '/' }}">Trang Chủ</a></li>
-                                <li><a href="">Giới Thiệu</a></li>
+                                <li><a href="{{route('client.gioithieu.hienGioiThieu')}}">Giới Thiệu</a></li>
                                 <li><a href="{{route('client.sanpham.all')}}">Sản Phẩm <i class="fa-solid fa-chevron-down"></i></a>
                                     <ul class="sub-menu-style">
                                         @foreach ($listDanhMuc as $item)
-                                        <li><a href="">{{ $item->ten_danh_muc }}</a></li>
+                                        <li><a href="{{route('client.sanpham.danhmucsanpham', $item->id)}}">{{ $item->ten_danh_muc }}</a></li>
                                         @endforeach
                                     </ul>
                                 </li>
-                                <li><a href="?act=tintuc">Tin Tức</a></li>
-                                <li><a href="?act=lienhe">Liên Hệ </a></li>
+                                <li><a href="{{route('client.tintuc.hienTinTuc')}}">Tin Tức</a></li>
+                                <li><a href="{{route('client.lienhe.hienLienHe')}}">Liên Hệ </a></li>
                             </ul>
                         </nav>
                     </div>

@@ -160,12 +160,14 @@
                 </a>
                 <div id="collapseSevent" class="collapse" aria-labelledby="headingSevent" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{route('admin.tintuc.index')}}">Quản lý tin tức</a>
                         <a class="collapse-item" href="{{route('admin.banner.index')}}">Quản lý banner</a>
+                        <a class="collapse-item" href="{{route('admin.lienhe.index')}}">Quản lý liên hệ</a>
                     </div>
                 </div>
             </li>
             <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+            <hr class="sidebar-divider d-none d-md-block">s
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">

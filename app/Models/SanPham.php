@@ -36,4 +36,5 @@ class SanPham extends Model
     {
         return $this->hasMany(Banner::class, 'san_pham_id'); // Specify the foreign key
     }
+
 }
