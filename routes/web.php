@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\BinhLuanController;
 use App\Http\Controllers\Admin\LienHeController;
 use App\Http\Controllers\Admin\TinTucController;
 use App\Http\Controllers\Client\ClientController;
+use App\Http\Controllers\Client\DonHangController as ClientDonHangController;
 use App\Http\Controllers\Client\GioHangController;
 use App\Http\Controllers\Client\SanPhamController as ClientSanPhamController;
 use App\Http\Controllers\Client\UserController as ClientUserController;
@@ -38,6 +39,9 @@ Route::prefix('/')->as('client.')->group(function(){
     Route::get('/gio-hang', [GioHangController::class, 'listGioHang'])->name('giohang.list');
     Route::post('/add-gio-hang', [GioHangController::class, 'addGioHang'])->name('giohang.add');
     Route::post('/update-gio-hang', [GioHangController::class, 'updateGioHang'])->name('giohang.update');
+    Route::middleware('auth')->prefix('donhangs')->as('donhang.')->group(function(){
+        Route::resource('donhang', ClientDonHangController::class);
+    });
     Route::resource('profile', ClientUserController::class);
     Route::get('/lienhe',[ClientController::class,'hienLienHe'])->name('lienhe.hienLienHe');
     Route::post('/lienhe',[ClientController::class,'storeLienHe'])->name('lienhe.storeLienHe');

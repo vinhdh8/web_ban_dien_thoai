@@ -3,71 +3,76 @@
      <!-- Begin Page Content -->
  <div class="container-fluid">
     <h1 class="h3 mb-2 text-gray-800 mb-5">Danh sách đơn hàng</h1>
-    <form action="" method="post">
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <button type="button" class="btn btn-secondary btn-sm" onclick="">Chọn tất cả</button>
-                <button type="button" class="btn btn-secondary btn-sm" onclick="">Bỏ chọn tất cả</button>
-                <button type="submit" name="xoacacmucchon" class="btn btn-secondary btn-sm">Xóa các mục đã chọn</button>
-                <div class="float-right">
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="kyw" placeholder="Tìm kiếm...">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="submit" name="search">
-                                <i class="fas fa-search fa-sm"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="card shadow mb-4">
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" width="100%" cellspacing="0">
+                        @if ( Session::has('success') )
+                            <div class="alert alert-success alert-dismissible" role="alert">
+                                <strong>{{ Session::get('success') }}</strong>
+                            </div>
+                        @endif
+                        @if ( Session::has('error') )
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <strong>{{ Session::get('error') }}</strong>
+                            </div>
+                        @endif
+                        @if ($errors->any())
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <thead class="thead-light">
                             <tr>
-                                <th></th>
                                 <th>Mã đơn hàng</th>
-                                <th>Khách hàng</th>
-                                <th>Số lượng</th>
-                                <th>Giá trị đơn hàng</th>
-                                <th>Tình trạng đơn hàng</th>
                                 <th>Ngày đặt hàng</th>
-                                <th>Thanh toán</th>
-                                <th>Thao tác</th>
+                                <th>Trạng thái</th>
+                                <th>Tổng tiền</th>
+                                <th>Hành động</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($don_hangs as $index => $item)
-                                @if ($item->trang_thai==1)
-                                    @php
-                                        $item->trang_thai = "Đơn hàng mới"
-                                    @endphp
-                                @endif
-                                @if ($item->thanh_toan==0)
-                                    @php
-                                        $item->thanh_toan = "Chưa thanh toán"
-                                    @endphp
-                                @else
-                                    @php
-                                        $item->thanh_toan = "Đã thanh toán"
-                                    @endphp
-                                @endif
+                            @foreach ($listDonHang as $item)
                                 <tr>
-                                    <td class="text-center align-middle"><input type="checkbox" name="select[]" id="" value=""></td>
-                                    <td class="col-1 align-middle">GT-{{ $index + 1 }}</td>
-                                    <td class="col-3 align-middle">
-                                        {{ $item->ten_nguoi_nhan }} </br>
-                                        {{ $item->so_dien_thoai }} </br>
-                                        {{ $item->email }} </br>
-                                        {{ $item->dia_chi_nhan }} </br>
+                                    <td class="col-2">
+                                        <a href="{{route('admin.donhang.show', $item->id)}}">
+                                            <strong>{{$item->ma_don_hang}}</strong>
+                                        </a>
                                     </td>
-                                    <td class="text-center align-middle">{{ $item->chi_tiet_so_luong }}</td>
-                                    <td  class="col-1 align-middle">{{ $item->thanh_tien }}</td>
-                                    <td  class="col-2 align-middle">{{ $item->trang_thai }}</td>
-                                    <td class="col-2 align-middle">{{ $item->ngay_dat_hang }}</td>
-                                    <td  class="col-2 align-middle">{{ $item->thanh_toan }}</td>
-                                    <td class="col-2 align-middle"><a href=""><button type="button" class="btn btn-secondary btn-sm">Cập nhật</button></a> <br><br>
-                                        <a href=""><button type="button" class="btn btn-secondary btn-sm">Hủy</button></a>
+                                    <td class="col-2">
+                                        {{$item->created_at->format('d-m-Y')}}
+                                    </td>
+                                    <td class="col-2">
+                                        <form action="{{route('admin.donhang.update', $item->id)}}" method="post">
+                                            @csrf
+                                            @method('put')
+                                            <select name="trang_thai" class="form-select" onchange="confirmSubmit(this)" data-default-value="{{$item->trang_thai}}">
+                                                @foreach ($trangThaiDonHang as $key => $value)
+                                                    <option value="{{$key}}" 
+                                                    {{$key == $item->trang_thai ? 'selected' : '' }}
+                                                    {{$key == $trangThaiHuyDon ? 'disabled' : '' }}>{{$value}}</option>
+                                                @endforeach
+                                            </select>
+                                        </form>
+                                    </td>
+                                    <td class="col-2">
+                                        <span class="amount">{{number_format($item->tong_tien, 0, '', '.')}} ₫</span>
+                                    </td>
+                                    <td class="col-2 align-middle">
+                                        <a href="{{route('admin.donhang.show', $item->id)}}">
+                                            <button type="button" class="btn btn-secondary btn-sm">Chi tiết</button>
+                                        </a>
+                                        @if ($item->trang_thai === $trangThaiHuyDon)
+                                            <form action="{{route('admin.donhang.destroy', $item->id)}}" method="post" class="d-inline">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit" class="btn btn-secondary btn-sm" onclick="return confirm('Bạn có muốn xóa không')">Xóa</button>
+                                            </form>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach
@@ -84,9 +89,24 @@
                     </div>
                 </div>
             </div>
-        </form> 
     </div>
+    
     
 </div>
 <!-- /.container-fluid -->
+@endsection
+
+@section('js')
+    <script>
+        function confirmSubmit(selectElement){
+            var form = selectElement.form;
+            var selectedOption = selectElement.options[selectElement.selectedIndex].text;
+            var defaultValue = selectElement.getAttribute('data-default-value');
+            if (confirm('Bạn có chắc chắn thay đổi trạng thái đơn hàng thành "' + selectedOption + '" không?')) {
+                form.submit();
+            } else {
+                selectElement.value = defaultValue;
+            }
+        }
+    </script>
 @endsection
