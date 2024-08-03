@@ -26,6 +26,6 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
         $listDanhMuc = DanhMuc::query()->get();
         View::share('listDanhMuc', $listDanhMuc);
-   
+      //Share tất cả danh mục ở trong view
     }
 }

@@ -72,8 +72,8 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{ route('admin.taikhoan.index') }}">Danh sách quản trị viên</a>
                         <a class="collapse-item" href="{{ route('admin.thanhVien') }}">Danh sách người dùng</a>
-                        <a class="collapse-item" href="">Tài khoản bị khóa</a>
-                        <a class="collapse-item" href="" style="background-color: #48dbfb;">
+                        <a class="collapse-item" href="{{route('admin.taikhoan.listkhoaTK')}}">Tài khoản bị khóa</a>
+                        <a class="collapse-item" href="{{route('admin.taikhoan.create')}}" style="background-color: #48dbfb;">
                             <i class="fas fa-fw fa-plus" style="color: #576574;"></i>
                             <span>Thêm mới</span></a>
                     </div>
@@ -130,7 +130,7 @@
             
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{route('admin.binhluan.index')}}">
                     <i class="fas fa-fw fa-comment"></i>
                     <span>Quản lý bình luận</span>
                 </a>
@@ -158,12 +158,14 @@
                 </a>
                 <div id="collapseSevent" class="collapse" aria-labelledby="headingSevent" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{route('admin.tintuc.index')}}">Quản lý tin tức</a>
                         <a class="collapse-item" href="{{route('admin.banner.index')}}">Quản lý banner</a>
+                        <a class="collapse-item" href="{{route('admin.lienhe.index')}}">Quản lý liên hệ</a>
                     </div>
                 </div>
             </li>
             <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
+            <hr class="sidebar-divider d-none d-md-block">s
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">

@@ -1,4 +1,4 @@
-    @extends('layout.client')
+@extends('layout.client')
     @section('content')
     <div class="shop-area pt-100 pb-100">
         <div class="container">
@@ -8,7 +8,7 @@
                         <div class="tab-content jump">
                             <div id="shop-1" class="tab-pane active">
                                 <div class="row">
-                                    @foreach($listsanpham as $product)
+                                    @foreach($listSanPham as $product)
                                         <div class="col-lg-4 col-sm-5">
                                             <div class="product-wrap mb-35" data-aos="fade-up" data-aos-delay="200">
                                                 <div class="product-img img-zoom mb-25">
@@ -43,7 +43,7 @@
                                 </div>
                                   <!-- Hiển thị các liên kết phân trang -->
                             <div class="pagination-wrap">
-                                {{ $listsanpham->links()}}
+                                {{ $listSanPham->links()}}
                             </div>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                             <div class="sidebar-list-style">
                                 <ul>
                                     @foreach($listDanhMuc as $cate)
-                                    <li><a href="{{route('client.sanpham.danhmucsanpham',$cate->id)}}">{{ $cate->ten_danh_muc }} <span>{{ $cate->sanphams_count }}</span></a></li>
+                                    <li><a href="{{route('client.sanpham.danhmucsanpham',$cate->id)}}">{{ $cate->ten_danh_muc }} <span>{{$cate->sanphams_count}}</span>     </a></li>
                                     @endforeach
                                 </ul>
                             </div>

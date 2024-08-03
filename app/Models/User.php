@@ -33,7 +33,10 @@ class User extends Authenticatable
         'ten_dang_nhap',
         'email',
         'password',
-        'vai_tro'
+        'vai_tro',
+        'so_dien_thoai',
+        'dia_chi',
+        'trang_thai'
     ];
 
     /**

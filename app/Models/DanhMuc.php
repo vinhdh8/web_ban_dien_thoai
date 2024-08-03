@@ -21,6 +21,11 @@ class DanhMuc extends Model
         ->get();
         return $danh_muc;
     }
+
+    public function sanphams()
+    {
+        return $this->hasMany(SanPham::class, 'danh_muc_id'); // hàm tính số sản phẩm trong danh mục
+    }
     //Sử dụng model
     // public function addDanhMuc($ten_danh_muc){
     //       return DB::table('danh_mucs')
