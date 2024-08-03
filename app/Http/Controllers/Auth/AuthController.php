@@ -31,29 +31,68 @@ class AuthController extends Controller
         // return redirect()->back()->withErrors([
         //     'ten_dang_nhap'=>'Tên đăng nhập sai hoặc không tồn tại'
         // ]);
+
+        //khi chưa có trạng thái
+        // $rules = [
+        //     'ten_dang_nhap'=>'required|string|max:20',
+        //     'password'=>'required|string|min:6'
+        // ];
+        // $massage = [
+        //     'ten_dang_nhap.required'=>'Tên đăng nhập không được bỏ trống',
+        //     'ten_dang_nhap.max'=>'Tên đăng nhập tối đa 20 ký tự',
+        //     'password.required'=>'Mật khẩu không được bỏ trống',
+        //     'password.min'=>'Mật khẩu tối thiểu 6 ký tự'
+        // ];
+        // $validator = Validator::make($request->all(), $rules, $massage);
+        // if($validator->fails()){
+        //     return redirect()->intended('/login')->withErrors($validator)->withInput();
+        // }
+        // else{
+        //     $ten_dang_nhap = $request->input('ten_dang_nhap');
+        //     $password = $request->input('password');
+            
+        //     if(Auth::attempt(['ten_dang_nhap' => $ten_dang_nhap, 'password' => $password])){
+        //         return redirect()->intended('/');
+        //     }
+        //     else{
+        //         Session::flash('loginError', 'Tên đăng nhập hoặc mật khẩu không đúng');
+        //         return redirect()->intended('/login');
+        //     }
+        // }
         $rules = [
-            'ten_dang_nhap'=>'required|string|max:20',
-            'password'=>'required|string|min:6'
+            'ten_dang_nhap' => 'required|string|max:20',
+            'password' => 'required|string|min:6',
         ];
-        $massage = [
-            'ten_dang_nhap.required'=>'Tên đăng nhập không được bỏ trống',
-            'ten_dang_nhap.max'=>'Tên đăng nhập tối đa 20 ký tự',
-            'password.required'=>'Mật khẩu không được bỏ trống',
-            'password.min'=>'Mật khẩu tối thiểu 6 ký tự'
+
+        $messages = [
+            'ten_dang_nhap.required' => 'Tên đăng nhập không được bỏ trống',
+            'ten_dang_nhap.max' => 'Tên đăng nhập tối đa 20 ký tự',
+            'password.required' => 'Mật khẩu không được bỏ trống',
+            'password.min' => 'Mật khẩu tối thiểu 6 ký tự',
         ];
-        $validator = Validator::make($request->all(), $rules, $massage);
-        if($validator->fails()){
-            return redirect()->intended('/login')->withErrors($validator)->withInput();
-        }else{
-            $ten_dang_nhap = $request->input('ten_dang_nhap');
-            $password = $request->input('password');
-            if(Auth::attempt(['ten_dang_nhap' => $ten_dang_nhap, 'password' => $password])){
-                return redirect()->intended('/');
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            return redirect()->route('login')->withErrors($validator)->withInput();
+        }
+
+        $ten_dang_nhap = $request->input('ten_dang_nhap');
+        $password = $request->input('password');
+
+        // Xác thực thông tin đăng nhập
+        if (Auth::attempt(['ten_dang_nhap' => $ten_dang_nhap, 'password' => $password])) {
+            // Kiểm tra trạng thái tài khoản
+            $user = Auth::user();
+            if ($user->trang_thai == 1) {
+                Auth::logout();
+                return redirect()->route('login')->withErrors(['Tài khoản của bạn đã bị khóa']);
             }
-            else{
-                Session::flash('loginError', 'Tên đăng nhập hoặc mật khẩu không đúng');
-                return redirect()->intended('/login');
-            }
+
+            return redirect()->intended('/');
+        } else {
+            Session::flash('loginError', 'Tên đăng nhập hoặc mật khẩu không đúng');
+            return redirect()->route('login');
         }
     }
     //Đăng kí

@@ -53,16 +53,34 @@
         });
     }
     
-    // Hero slider active
-    var sliderActive = new Swiper('.slider-active', {
-        loop: true,
-        speed: 750,
-        effect: 'fade',
-        slidesPerView: 1,
-        navigation: {
-            nextEl: '.home-slider-next , .home-slider-next2 , .home-slider-next3',
-            prevEl: '.home-slider-prev , .home-slider-prev2 , .home-slider-prev3',
-        }
+    // Hero slider active old
+    // var sliderActive = new Swiper('.slider-active', {
+    //     loop: true,
+    //     speed: 750,
+    //     effect: 'fade',
+    //     slidesPerView: 1,
+    //     navigation: {
+    //         nextEl: '.home-slider-next , .home-slider-next2 , .home-slider-next3',
+    //         prevEl: '.home-slider-prev , .home-slider-prev2 , .home-slider-prev3',
+    //     }
+    // });
+    
+    //Slider new
+    document.addEventListener('DOMContentLoaded', function () {
+        var sliderActive = new Swiper('.slider-active', {
+            loop: true,
+            speed: 750,
+            effect: 'fade',
+            slidesPerView: 1,
+            autoplay: {
+                delay: 3000, // 3 giây
+                disableOnInteraction: false, // Không dừng autoplay khi tương tác
+            },
+            navigation: {
+                nextEl: '.home-slider-next',
+                prevEl: '.home-slider-prev',
+            }
+        });
     });
     
     /*------ Timer active ----*/
