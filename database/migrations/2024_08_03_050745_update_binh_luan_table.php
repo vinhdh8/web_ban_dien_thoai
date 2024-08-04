@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('binh_luans', function (Blueprint $table) {
-            $table->boolean('trang_thai')->default(false);
+            // $table->boolean('trang_thai')->default(false);
         });
     }
 

@@ -120,6 +120,7 @@ class AuthController extends Controller
         } else {   
             // Dữ liệu vào hợp lệ sẽ thực hiện tạo người dùng dưới csdl
             if( $this->create($allRequest)) {
+                Session::flash('registerSuccess', 'Đăng ký tài khoản thành công!');
                 return redirect()->intended('/login');
             } else {
                 // Insert thất bại sẽ hiển thị thông báo lỗi
