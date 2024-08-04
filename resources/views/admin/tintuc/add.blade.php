@@ -9,6 +9,7 @@
 </div>
 <div class="card shadow mb-4">
     <div class="card-body">
+
         <form action="{{route('admin.tintuc.store')}}" method="post" enctype="multipart/form-data" class="form">
             @csrf
             <input type="hidden" name="user_id" value="{{Auth::User()->id}}">

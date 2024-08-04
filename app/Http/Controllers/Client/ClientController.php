@@ -16,11 +16,10 @@ class ClientController extends Controller
 {
     //
     public function index(){
-        $listDanhMuc = Danhmuc::all();
         $listsanpham = SanPham::all();
         $sanphamHot = SanPham::limit(12)->get();
         $listBanner= Banner::with('sanPham')->get();
-        return view('client.index', compact('listsanpham', 'sanphamHot','listDanhMuc', 'listBanner'));
+        return view('client.index', compact('listsanpham', 'sanphamHot', 'listBanner'));
     }
     
     public function allSanPham(){
@@ -121,8 +120,10 @@ class ClientController extends Controller
     }
     public  function hienTinTuc()
     {
+
         $listTintuc = Tintuc::paginate(3);
         return view('client.tintuc.tintuc',compact('listTintuc'));
     }
+
 
 }

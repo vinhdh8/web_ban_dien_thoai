@@ -29,6 +29,7 @@
             <div>
                 <button type="submit" name="submit" class="btn btn-success">Xác nhận</button>
                 <a href="{{route('admin.tintuc.index')}}"><button type="button" class="btn btn-success">Quay lại</button></a>
+
             </div>
         </form>
     </div>

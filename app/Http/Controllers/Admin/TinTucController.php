@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\StoreTinTucRequest;
 use App\Models\Tintuc;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
+
 
 class TinTucController extends Controller
 {
@@ -17,6 +19,7 @@ class TinTucController extends Controller
      */
     public function index()
     {
+
         $listTinTuc = Tintuc::all();
         return view('admin.tintuc.index', compact('listTinTuc'));
     }
@@ -26,12 +29,14 @@ class TinTucController extends Controller
      */
     public function create()
     {
+
         return view('admin.tintuc.add');
     }
 
     /**
      * Store a newly created resource in storage.
      */
+
     public function store(StoreTinTucRequest $request)
     {
         if ($request->isMethod('POST')) {
@@ -47,6 +52,10 @@ class TinTucController extends Controller
             Tintuc::query()->create($params);
             return redirect()->route('admin.tintuc.index')->with('success', 'Thêm thành công tin tức.');
         }
+
+    public function store(Request $request)
+    {
+
     }
 
     /**
@@ -54,8 +63,10 @@ class TinTucController extends Controller
      */
     public function show(string $id)
     {
+
         $tinTuc = Tintuc::query()->findOrFail($id);
         return view('admin.tintuc.edit', compact('tinTuc'));
+
     }
 
     /**
@@ -71,6 +82,7 @@ class TinTucController extends Controller
      */
     public function update(Request $request, string $id)
     {
+
         $request->validate(
             [
                 'tieu_de.required' => 'Tiêu đề là không được trống.',
@@ -113,6 +125,7 @@ class TinTucController extends Controller
          ]);
 
          return redirect()->route('admin.tintuc.index')->with('success','Sửa thành công');
+
     }
 
     /**
@@ -120,6 +133,7 @@ class TinTucController extends Controller
      */
     public function destroy(string $id)
     {
+
         $delTinTuc = Tintuc::query()->findOrFail($id);
          //Xóa hình ảnh
          if ($delTinTuc->hinh_anh && Storage::disk('public')->exists($delTinTuc->hinh_anh)) {
@@ -128,5 +142,6 @@ class TinTucController extends Controller
         $delTinTuc->delete();
 
         return redirect()->route('admin.tintuc.index')->with('Xóa thành công');
+
     }
 }
