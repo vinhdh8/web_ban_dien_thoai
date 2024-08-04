@@ -9,6 +9,7 @@ use App\Models\Binhluan;
 use App\Models\DanhMuc;
 use App\Models\LienHe;
 use App\Models\SanPham;
+use App\Models\Tintuc;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -120,6 +121,8 @@ class ClientController extends Controller
     }
     public  function hienTinTuc()
     {
-        return view('client.tintuc.tintuc');
+        $listTintuc = Tintuc::paginate(3);
+        return view('client.tintuc.tintuc',compact('listTintuc'));
     }
+
 }

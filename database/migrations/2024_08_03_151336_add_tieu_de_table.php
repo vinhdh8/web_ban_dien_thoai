@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('binh_luans', function (Blueprint $table) {
-            $table->boolean('trang_thai')->default(false);
+        Schema::table('tin_tucs', function (Blueprint $table) {
+            $table->text('tieu_de');
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('binh_luans', function (Blueprint $table) {
-            $table->dropColumn('trang_thai');
+        Schema::table('tin_tucs', function (Blueprint $table) {
+            $table->dropColumn('tieu_de');
         });
     }
 };

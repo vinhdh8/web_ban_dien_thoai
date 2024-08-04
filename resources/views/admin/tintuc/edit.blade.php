@@ -9,28 +9,26 @@
 </div>
 <div class="card shadow mb-4">
     <div class="card-body">
-        <form action="?act=updatetintuc" method="post" enctype="multipart/form-data" class="form">
-            <input type="hidden" name="id" value="<?= $id;?>">
-            <input type="hidden" name="oldImage" value="<?= $oldImage;?>">
+        <form action="{{route('admin.tintuc.update',$tinTuc->id)}}" method="post" enctype="multipart/form-data" class="form">
+            @csrf 
+            @method('PUT')
+            <input type="hidden" name="id" value="{{Auth::User()->id}}">
             <div class="mb-3">
-                <label for="tieude" class="form-label">Tiêu đề</label>
-                <input type="text" class="form-control" id="tieude" name="tieude" placeholder="Nhập tiêu đề..." value="<?= $tieude?>">
-                <p class="Err mt-1"><?= $tieudeErr?></p>
+                <label for="tieu_de" class="form-label">Tiêu đề</label>
+                <input type="text" class="form-control" id="tieu_de" name="tieu_de" placeholder="Nhập tiêu đề..." value="{{$tinTuc->tieu_de}}">
             </div>
             <div class="mb-3">
-                <label for="image" class="form-label">Ảnh bìa:</label>
-                <input type="file" name="image" id="image" class="form-control-file border">
-                <p class="Err mt-1"><?= $imageErr?></p>
-                <img src="../uploads/tintuc/<?=$oldImage?>" alt="" height="100px">
+                <label for="hinh_anh" class="form-label">Ảnh bìa:</label>
+                <input type="file" name="hinh_anh" id="hinh_anh" class="form-control-file border">
+                <img src="{{Storage::url($tinTuc->hinh_anh)}}" alt="" height="100px">
             </div>
             <div class="mb-3">
                 <label for="noidung">Nội dung</label>
-                <textarea class="form-control" rows="10" id="noidung" name="noidung" placeholder="Nhập nội dung..."><?= $noidung?></textarea>
-                <p class="Err mt-1"><?= $noidungErr?></p>
+                <textarea class="form-control" rows="10" id="noi_dung" name="noi_dung" placeholder="Nhập nội dung...">{{$tinTuc->noi_dung}}</textarea>
             </div>
             <div>
                 <button type="submit" name="submit" class="btn btn-success">Xác nhận</button>
-                <a href="?act=qltintuc"><button type="button" class="btn btn-success">Quay lại</button></a>
+                <a href="{{route('admin.tintuc.index')}}"><button type="button" class="btn btn-success">Quay lại</button></a>
             </div>
         </form>
     </div>

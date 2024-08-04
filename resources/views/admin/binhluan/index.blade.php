@@ -1,6 +1,11 @@
 @extends('layout.admin')
 @section('content')
 <div class="container-fluid">
+    @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
     <h1 class="h3 mb-2 text-gray-800 mb-5">Danh sách bình luận</h1>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
