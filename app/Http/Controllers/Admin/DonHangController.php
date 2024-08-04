@@ -12,8 +12,11 @@ class DonHangController extends Controller
     {
         $listDonHang = DonHang::query()->orderByDesc('id')->get();
         $trangThaiDonHang = DonHang::TRANG_THAI_DON_HANG;
+        $trangThaiThanhToan = DonHang::TRANG_THAI_THANH_TOAN;
         $trangThaiHuyDon = DonHang::HUY_DON_HANG;
-        return view('admin.donhang.index', compact('listDonHang', 'trangThaiDonHang', 'trangThaiHuyDon'));
+        $trangThaiDaThanhToan = DonHang::DA_THANH_TOAN;
+        $trangThaiDaGiaoHang = DonHang::DA_GIAO_HANG;
+        return view('admin.donhang.index', compact('listDonHang', 'trangThaiDonHang', 'trangThaiHuyDon', 'trangThaiThanhToan', 'trangThaiDaThanhToan', 'trangThaiDaGiaoHang'));
     }
 
     /**
@@ -46,7 +49,7 @@ class DonHangController extends Controller
         }
         $donHang->trang_thai = $newTrangThai;
         $donHang->save();
-        return redirect()->route('admin.donhang.index')->with('success', 'Cập nhật trạng thái thành công');
+        return redirect()->route('admin.donhang.index')->with('success', 'Cập nhật trạng thái đơn hàng thành công');
     }
 
     /**

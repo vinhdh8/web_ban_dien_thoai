@@ -52,11 +52,8 @@ class TinTucController extends Controller
             Tintuc::query()->create($params);
             return redirect()->route('admin.tintuc.index')->with('success', 'Thêm thành công tin tức.');
         }
-
-    public function store(Request $request)
-    {
-
     }
+
 
     /**
      * Display the specified resource.

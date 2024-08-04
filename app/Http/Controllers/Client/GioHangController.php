@@ -10,6 +10,7 @@ class GioHangController extends Controller
 {
     public function listGioHang(){
         $gioHang = session()->get('cart', []);
+        // dd($gioHang);
         $total = 0;
         $subTotal = 0;
         foreach($gioHang as $item){
