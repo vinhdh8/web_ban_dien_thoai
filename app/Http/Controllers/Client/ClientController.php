@@ -9,6 +9,7 @@ use App\Models\Binhluan;
 use App\Models\DanhMuc;
 use App\Models\LienHe;
 use App\Models\SanPham;
+use App\Models\Tintuc;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -22,8 +23,8 @@ class ClientController extends Controller
     }
     
     public function allSanPham(){
-        $listDanhMuc = DanhMuc::query()->get();
-        $listsanpham = SanPham::paginate(6); // Phân trang với 16 sản phẩm mỗi trang    
+        $listDanhMuc = DanhMuc::query()->withCount('sanphams')->get();
+        $listsanpham = SanPham::paginate(6); // Phân trang với 6 sản phẩm mỗi trang    
         return view('client.sanpham.allsanpham',compact('listsanpham','listDanhMuc'));
     }
 
@@ -119,6 +120,10 @@ class ClientController extends Controller
     }
     public  function hienTinTuc()
     {
-        return view('client.tintuc.tintuc');
+
+        $listTintuc = Tintuc::paginate(3);
+        return view('client.tintuc.tintuc',compact('listTintuc'));
     }
+
+
 }

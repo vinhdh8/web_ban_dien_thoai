@@ -9,25 +9,35 @@
 </div>
 <div class="card shadow mb-4">
     <div class="card-body">
-        <form action="?act=addtintuc" method="post" enctype="multipart/form-data" class="form">
+
+        <form action="{{route('admin.tintuc.store')}}" method="post" enctype="multipart/form-data" class="form">
+            @csrf
+            <input type="hidden" name="user_id" value="{{Auth::User()->id}}">
+
             <div class="mb-3">
                 <label for="tieude" class="form-label">Tiêu đề</label>
-                <input type="text" class="form-control" id="tieude" name="tieude" placeholder="Nhập tiêu đề..." value="<?= isset($tieude) ? ($tieude) : '' ?>">
-                <p class="Err mt-1"><?= $tieudeErr?></p>
+                <input type="text" class="form-control @error('tieu_de') is-invalid @enderror " id="tieu_de" name="tieu_de" placeholder="Nhập tiêu đề..." value="{{old('tieu_de')}}">
+                @error('tieu_de')
+                        <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">Ảnh bìa:</label>
-                <input type="file" name="image" id="image" class="form-control-file border">
-                <p class="Err mt-1"><?= $imageErr?></p>
+                <input type="file" name="hinh_anh" id="hinh_anh" class="form-control-file border  @error('hinh_anh') is-invalid @enderror ">
+                @error('hinh_anh')
+                        <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="noidung">Nội dung</label>
-                <textarea class="form-control" rows="10" id="noidung" name="noidung" placeholder="Nhập nội dung..."><?= isset($noidung) ? ($noidung) : '' ?></textarea>
-                <p class="Err mt-1"><?= $noidungErr?></p>
+                <textarea class="form-control @error('noi_dung') is-invalid @enderror " rows="10" id="noi_dung" name="noi_dung" placeholder="Nhập nội dung..." ></textarea>
+                @error('noi_dung')
+                        <div class="text-danger">{{ $message }}</div>
+                @enderror
             </div>
             <div>
-                <button type="submit" name="submit" class="btn btn-success">Xác nhận</button>
-                <a href="?act=qltintuc"><button type="button" class="btn btn-success">Quay lại</button></a>
+                <button type="submit"  class="btn btn-success">Xác nhận</button>
+                <a href="{{route('admin.tintuc.index')}}"><button type="button" class="btn btn-success">Quay lại</button></a>
             </div>
         </form>
     </div>
