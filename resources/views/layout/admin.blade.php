@@ -136,20 +136,6 @@
                 </a>
             </li>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSix"
-                    aria-expanded="true" aria-controls="collapseSix">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Thống kê</span>
-                </a>
-                <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="">Biểu đồ</a>
-                        <a class="collapse-item" href="">Danh sách</a>
-                    </div>
-                </div>
-            </li>
             <li class="nav-item  mb-3">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSevent"
                     aria-expanded="true" aria-controls="collapseSevent">

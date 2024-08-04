@@ -30,7 +30,8 @@
                             <tr>
                                 <th>Mã đơn hàng</th>
                                 <th>Ngày đặt hàng</th>
-                                <th>Trạng thái</th>
+                                <th>Trạng thái đơn hàng</th>
+                                <th>Trạng thái thanh toán</th>
                                 <th>Tổng tiền</th>
                                 <th>Hành động</th>
                             </tr>
@@ -50,14 +51,22 @@
                                         <form action="{{route('admin.donhang.update', $item->id)}}" method="post">
                                             @csrf
                                             @method('put')
-                                            <select name="trang_thai" class="form-select" onchange="confirmSubmit(this)" data-default-value="{{$item->trang_thai}}">
+                                            <select name="trang_thai" class="form-control" onchange="confirmSubmit(this)" data-default-value="{{$item->trang_thai}}">
                                                 @foreach ($trangThaiDonHang as $key => $value)
                                                     <option value="{{$key}}" 
                                                     {{$key == $item->trang_thai ? 'selected' : '' }}
-                                                    {{$key == $trangThaiHuyDon ? 'disabled' : '' }}>{{$value}}</option>
+                                                    {{$key == $trangThaiHuyDon ? 'disabled' : '' }}
+                                                    {{$key == $trangThaiDaGiaoHang ? 'disabled' : '' }}>{{$value}}</option>
                                                 @endforeach
                                             </select>
                                         </form>
+                                    </td>
+                                    <td class="col-2">
+                                        <select name="thanh_toan" class="form-control"  disabled>
+                                            @foreach ($trangThaiThanhToan as $key => $value)
+                                                <option value="{{$key}}" {{$key == $item->thanh_toan ? 'selected' : '' }}>{{$value}}</option>
+                                            @endforeach
+                                        </select>
                                     </td>
                                     <td class="col-2">
                                         <span class="amount">{{number_format($item->tong_tien, 0, '', '.')}} ₫</span>

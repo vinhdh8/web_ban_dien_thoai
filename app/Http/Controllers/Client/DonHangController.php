@@ -101,6 +101,7 @@ class DonHangController extends Controller
             if($request->has('huy_don_hang')){
                 $donHang->update(['trang_thai'=> DonHang::HUY_DON_HANG]);
             }elseif($request->has('da_giao_hang')){
+                $donHang->update(['thanh_toan'=> DonHang::DA_THANH_TOAN]);
                 $donHang->update(['trang_thai'=> DonHang::DA_GIAO_HANG]);
             }
             DB::commit();

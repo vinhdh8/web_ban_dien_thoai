@@ -53,9 +53,11 @@
                                                 @if(Auth::user()->vai_tro==1)
                                                     <li><a href="{{route('admin.admin')}}" style="font-size:13px;">Quản trị viên</a></li>
                                                 @endif
-                                                <form action="{{route('logout')}}" method="post">
+                                                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="font-size:13px;">
+                                                    Đăng xuất
+                                                </a>
+                                                <form id="logout-form" action="{{route('logout')}}" method="post" style="display: none;">
                                                     @csrf
-                                                    <li><a href="" style="font-size:13px;"><button type="submit" class="btn btn-tertiary">Đăng xuất</button></a></li>
                                                 </form>
                                             </ul>
                                         </li>
