@@ -1,5 +1,15 @@
 @extends('layout.client')
 @section('content')
+@if ( Session::has('registerSuccess') )
+	<div class="alert alert-success alert-dismissible" role="alert">
+		<strong>{{ Session::get('registerSuccess') }}</strong>
+	</div>
+@endif
+@if ( Session::has('loginSuccess') )
+	<div class="alert alert-success alert-dismissible" role="alert">
+		<strong>{{ Session::get('loginSuccess') }}</strong>
+	</div>
+@endif
 @if ( Session::has('loginError') )
 	<div class="alert alert-danger alert-dismissible" role="alert">
 		<strong>{{ Session::get('loginError') }}</strong>
