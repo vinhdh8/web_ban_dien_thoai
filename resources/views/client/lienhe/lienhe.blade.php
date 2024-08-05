@@ -48,13 +48,6 @@
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="mb-3">
-                        <label for="w" class="form-label">Ngày gửi</label>
-                        <input type="date" id="ngay_gui" name="ngay_gui" class="form-control @error('ngay_gui') is-invalid @enderror" value="{{old('ngay_gui')}}">
-                        @error('ngay_gui')
-                        <div class="text-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
                     @if (session('success'))
                     <div class="alert alert-success">
                         {{ session('success') }}

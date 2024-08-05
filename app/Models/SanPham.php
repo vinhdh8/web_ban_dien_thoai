@@ -24,7 +24,7 @@ class SanPham extends Model
         $san_pham = DB::table('san_phams')
         ->join('danh_mucs', 'san_phams.danh_muc_id', '=', 'danh_mucs.id')
         ->select('san_phams.*', 'danh_mucs.ten_danh_muc')
-        ->orderBy('san_phams.id', 'ASC')->paginate(5);
+        ->orderBy('san_phams.id', 'Desc')->paginate(10);
         return $san_pham;
     }
 

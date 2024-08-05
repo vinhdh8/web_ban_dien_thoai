@@ -12,38 +12,31 @@
                     </div>
                     <div class="login-form-container">
                         <div class="login-register-form">
+                            @if (Session::has('message'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ Session::get('message') }}
+                                </div>
+                            @endif
                             <form action="" method="post">
-                                @csrf
-                                @method('put')
                                 <input type="hidden" name="id" value="{{Auth::user()->id}}">
                                 <input type="hidden" name="role" value="{{Auth::user()->vai_tro}}">
                                 <input type="hidden" name="matkhau" value="{{Auth::user()->password}}">
 
                                 <label for="" class="form-label">Tên đăng nhập:</label>
-                                <input type="text" name="tendangnhap" value="{{Auth::user()->ten_dang_nhap}}">
+                                <input type="text" name="tendangnhap" value="{{Auth::user()->ten_dang_nhap}}" disabled>
                                 <p style="color:red;"></p>
 
                                 <label for="" class="form-label">Họ và tên:</label>
-                                <input type="text" name="hovaten" value="{{Auth::user()->ho_va_ten}}">
+                                <input type="text" name="hovaten" value="{{Auth::user()->ho_va_ten}}" disabled>
                                 <p style="color:red;"></p>
 
                                 <label for="" class="form-label">Số điện thoại:</label>
-                                <input type="text" name="sodienthoai" value="{{ isset(Auth::user()->so_dien_thoai) ? Auth::user()->so_dien_thoai : ''}}">
+                                <input type="text" name="sodienthoai" value="{{ isset(Auth::user()->so_dien_thoai) ? Auth::user()->so_dien_thoai : ''}}" disabled>
                                 <p style="color:red;"></p>
                                 <label for="" class="form-label">Email:</label>
-                                <input type="text" value="{{Auth::user()->email}}">
-                                <input type="hidden" name="email" value="{{Auth::user()->email}}">
-
-                                <label for="" class="form-label">Địa chỉ:</label>
-                                <input type="text" name="diachi" value="{{ isset(Auth::user()->dia_chi) ? Auth::user()->dia_chi : ''}}">
-                                <p style="color:red;"></p>
-                                
+                                <input type="text" value="{{Auth::user()->email}}" disabled>
                                 <div class="login-toggle-btn mb-5">
-                                    <a href="?act=quenmatkhau">Quên mật khẩu?</a>
-                                    <a href="?act=doimatkhau" style="margin-right:378px;">Đổi mật khẩu</a>
-                                </div>
-                                <div class="button-box btn-hover">
-                                    <button type="submit" name="luu">Lưu</button>
+                                    <a href="{{route('forget.password.get')}}">Đổi mật khẩu?</a>
                                 </div>
                             </form>
                         </div>
