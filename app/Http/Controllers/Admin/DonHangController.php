@@ -10,7 +10,7 @@ class DonHangController extends Controller
 {
     public function index()
     {
-        $listDonHang = DonHang::query()->orderByDesc('id')->get();
+        $listDonHang = DonHang::query()->orderByDesc('id')->paginate(9);
         $trangThaiDonHang = DonHang::TRANG_THAI_DON_HANG;
         $trangThaiThanhToan = DonHang::TRANG_THAI_THANH_TOAN;
         $trangThaiHuyDon = DonHang::HUY_DON_HANG;

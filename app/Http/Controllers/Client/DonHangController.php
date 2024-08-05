@@ -18,7 +18,7 @@ class DonHangController extends Controller
      */
     public function index()
     {
-        $donHangs = Auth::user()->donHang;
+        $donHangs = Auth::user()->donHang()->orderByDesc('id')->paginate(8);
         $trangThaiDonHang = DonHang::TRANG_THAI_DON_HANG;
         $typeChoXacNhan = DonHang::CHO_XAC_NHAN;
         $typeDangVanChuyen = DonHang::DANG_VAN_CHUYEN;

@@ -7,7 +7,7 @@
                 @csrf
                 <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
                 <div class="row">
-                    <div class="col-lg-7">
+                    <div class="col-lg-5">
                         <div class="billing-info-wrap">
                             <h3>Chi tiết thanh toán</h3>
                             <div class="row">
@@ -50,7 +50,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-5">
+                    <div class="col-lg-7">
                         <div class="your-order-area">
                             <h3>Đơn hàng của bạn</h3>
                             <div class="your-order-wrap gray-bg-4">
@@ -103,10 +103,10 @@
 
                                         </div> -->
                                     </div>
-                                    <div class="pay-top sin-payment">
+                                    {{-- <div class="pay-top sin-payment">
                                         <input id="payment_method_1" class="input-radio" type="radio" value="1" name="">
                                         <label for="payment_method_1">CHUYỂN KHOẢN</label>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                             <div class="Place-order btn-hover">

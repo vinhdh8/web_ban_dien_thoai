@@ -79,7 +79,6 @@ class ClientController extends Controller
             ],
             'so_dien_thoai' => 'required|regex:/^0\d{9}$/',
             'noi_dung' => 'required|string',
-            'ngay_gui' => 'required|date|before_or_equal:today',
         ],
         [
             'ho_va_ten.required' => 'Họ và tên không được trống',
@@ -95,9 +94,7 @@ class ClientController extends Controller
             'so_dien_thoai.regex' => 'Số điện thoại phải là số và 10 chữ số  bắt đầu bằng số 0.',
 
             'noi_dung.required' => 'Nội dung không được trống',
-            'ngay_gui.required' => 'Ngày đăng là bắt buộc.',
-            'ngay_gui.date' => 'Ngày đăng phải là một ngày hợp lệ.',
-            'ngay_gui.before_or_equal' => 'Ngày đăng không được lớn hơn ngày hiện tại.',
+
 
         ]
     );
@@ -107,7 +104,7 @@ class ClientController extends Controller
           'email' => $request->email,
           'so_dien_thoai' => $request->so_dien_thoai,
           'noi_dung' => $request->noi_dung,
-          'ngay_gui'=>$request->ngay_gui,
+          'ngay_gui'=>now(),
           'created_at' =>now(),
           'updated_at' =>now(),
         ]);

@@ -77,10 +77,17 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-10">
                 <div class="cart-shiping-update-wrapper">
                     <div class="cart-shiping-update btn-hover">
                         <a href="{{route('client.sanpham.all')}}">Tiếp tục mua sắm</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="cart-shiping-update-wrapper">
+                    <div class="cart-shiping-update btn-hover">
+                        {{$donHangs->links()}}
                     </div>
                 </div>
             </div>

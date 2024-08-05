@@ -5,9 +5,9 @@
 		<strong>{{ Session::get('registerSuccess') }}</strong>
 	</div>
 @endif
-@if ( Session::has('loginSuccess') )
+@if ( Session::has('message') )
 	<div class="alert alert-success alert-dismissible" role="alert">
-		<strong>{{ Session::get('loginSuccess') }}</strong>
+		<strong>{{ Session::get('message') }}</strong>
 	</div>
 @endif
 @if ( Session::has('loginError') )
@@ -44,7 +44,7 @@
                                     <label class="form-label" for="">Mật khẩu</label>
                                     <input type="password" name="password" placeholder="" value="{{old('password')}}">
                                     <div class="login-toggle-btn">
-                                        <a href="">Quên mật khẩu?</a>
+                                        <a href="{{route('forget.password.get')}}">Quên mật khẩu?</a>
                                     </div>
                                     <div class="button-box btn-hover">
                                         <button type="submit" name="dangnhap">Đăng nhập</button>

@@ -23,7 +23,7 @@
                                 <div class="hero-slider-img-1 slider-animated-1">
                                     <img class="animated animated-slider-img-1" src="{{Storage::url($banner->hinh_anh)}}" alt="">
                                     <div class="product-offer animated">
-                                        <h5>20%<span>Off</span></h5>
+                                        <h5>Sale<span>Off</span></h5>
                                     </div>
                                 </div>
                             </div>

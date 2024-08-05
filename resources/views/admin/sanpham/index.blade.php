@@ -22,6 +22,20 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
+                    @if ( Session::has('success') )
+                        <div class="alert alert-success alert-dismissible" role="alert">
+                            <strong>{{ Session::get('success') }}</strong>
+                        </div>
+                    @endif
+                    @if ($errors->any())
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <table class="table table-bordered" width="100%" cellspacing="0">
                         <thead class="thead-light">
                             <tr>
